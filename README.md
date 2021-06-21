@@ -1,68 +1,89 @@
 # Project Overview
 
-## Project Name
+## Anime Search
 
-The name of your project with deployed URL.
+[Deployed Project](URL)
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+This project allows for users to search for anime. The project will append an image, title, and description of the anime show the user searches for. 
 
 ## API and Data Sample
 
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
+I am using the Jikan API which pulls data from MyAnimeList and gives data on anime and manga. [Jikan](https://jikan.docs.apiary.io/#)
+
+`{
+    "request_hash": "request:anime:c8a5be55579a0147b5c455245461fe69a7347e1b",
+    "request_cached": true,
+    "request_cache_expiry": 82064,
+    "episodes_last_page": 1,
+    "episodes": [
+        {
+            "episode_id": 1,
+            "title": "Asteroid Blues",
+            "title_japanese": "アステロイド・ブルース",
+            "title_romanji": "Asteroid Blues ",
+            "aired": "1998-10-24T00:00:00+00:00",
+            "filler": false,
+            "recap": false,
+            "video_url": "https://myanimelist.net/anime/1/Cowboy_Bebop/episode/1",
+            "forum_url": "https://myanimelist.net/forum/?topicid=29264"
+        },`
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+![Wireframe](https://i.imgur.com/JouFioF.png)
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Allow user to search with a form input to find information about different anime 
+- Render image, title, and description based on the search results 
+- Show anime airing that week
+- Have dynamic header image that showcases most popular anime at the time
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
-- Use local storage to save user favorites
+- Display list of popular anime on the page that are clickable and bring user to information page
+- Display upcoming anime that has been announced
+- Display different genres
+- Create image carousel in header that displays popular anime characters as well as most popular anime show at the moment
+- Let user add anime to a "watch later" list
 
 ## Project Schedule
-
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
 |---|---| ---|
 |June 21| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|June 22| Project Approval / Core Application Structure (HTML, CSS, etc.) | Incomplete
-|June 23| Pseudocode / actual code | Incomplete
-|June 24| Initial Clickable Model  | Incomplete
+|June 22| Project Approval / HTML Boilerplate / JS part of input form completed & appended items showing up | Incomplete
+|June 23| Add current anime airing for the week / Style the page in CSS based on wireframe | Incomplete
+|June 24| Initial Clickable Model / Additional CSS: hover effects,  animations / work on mobile UI  | Incomplete
 |June 25| MVP | Incomplete
 |June 28| Presentations | Incomplete
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+![Priority Matrix](https://i.imgur.com/CQXfcIZ.png)
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Create functional form | H |2hr|  |  |
+| Format form information using CSS | H | 3hrs|  |  |
+| Create currently airing anime section | H | 4hrs|  |  |
+| Add top anime to header and format header section | H | 3hrs|  |  |
+| Add hover effects for the images | L | 3hrs| |  |
+| Go through all data I want to display for the anime | H | 2hrs| |  |
+| query for mobile | H | 3hrs|  |  |
+| Format general website (background, footer) | H | 3hrs|  |  |
+| Testing out information taken from API (image sizes, kinds of information, search functionality) | H | 3hrs|  |  |
+| Add image carousel | L | 5hrs|  |  |
+| Add links at top of page that go to different sections | L | 1hrs|  |  |
+| add go go back up top of the page button | L | 2hrs|  |  |
+| create watch later list | L | 4hrs|  |  |
+| Total |  | 38hrs|  |  |
 
 ## Code Snippet
 
