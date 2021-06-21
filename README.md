@@ -12,6 +12,7 @@ This project allows for users to search for anime. The project will append an im
 
 I am using the Jikan API which pulls data from MyAnimeList and gives data on anime and manga. [Jikan](https://jikan.docs.apiary.io/#)
 
+
 ```
 {
     "request_hash": "request:anime:c8a5be55579a0147b5c455245461fe69a7347e1b",
@@ -30,6 +31,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
             "video_url": "https://myanimelist.net/anime/1/Cowboy_Bebop/episode/1",
             "forum_url": "https://myanimelist.net/forum/?topicid=29264"
         }
+```
 
 ## Wireframes
 
