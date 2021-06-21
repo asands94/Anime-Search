@@ -1,6 +1,6 @@
 # Project Overview
 
-## Anime Search
+## Anime House
 
 [Deployed Project](URL)
 
