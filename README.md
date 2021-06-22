@@ -6,7 +6,7 @@
 
 ## Project Description
 
-This project allows for users to search for anime. The project will append an image, title, and description of the anime show the user searches for. 
+This project allows for users to search for anime. The project will append an image, title, and description of the anime show the user searches for while also displaying the current anime shows airing at the time.
 
 ## API and Data Sample
 
