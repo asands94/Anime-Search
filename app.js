@@ -21,19 +21,21 @@ const animeSearch = async () => {
       // console.log(results[i].image_url)
       // console.log(results[i].url)
 
-      //Display search result images
-      let animeImageResults = results[i].image_url
-      let animeImage = document.createElement("img")
-      animeImage.setAttribute("src", animeImageResults)
-      animeImage.classList.add('image-results')
-      searchImages.append(animeImage)
-      
       //Display search result names
       let animeTitle = results[i].title
       let animeTitleNames = document.createElement("h3")
       animeTitleNames.classList.add('search-result-titles')
       animeTitleNames.textContent = animeTitle
-      animeImage.append(animeTitleNames)
+      searchImages.append(animeTitleNames)
+
+      //Display search result images
+      let animeImageResults = results[i].image_url
+      let animeImage = document.createElement("img")
+      // let animeImage = document.createElement("div")
+      animeImage.setAttribute("src", animeImageResults)
+      // animeImage.style.backgroundImage = `url(${animeImageResults})`
+      animeImage.classList.add('image-results')
+      searchImages.append(animeImage)
 
       // let link = results[i].url
       // let animeTitleLinks = document.createElement('a')

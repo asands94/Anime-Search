@@ -3,21 +3,8 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-
-.image-results:hover{
-  opacity: 0.2;
-}
-
-.image-results:hover + .search-result-titles{
-  opacity: 1;
-  color: red;
-}
-
-#search-images {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-  width: 1000px;
+.image-results {
+  background-size: cover;
 }
 
 #main-container {
@@ -28,7 +15,9 @@ header {
   height: 500px;
   align-items: center;
 }
-
+#search-images {
+  width: 100%
+}
 #main-border {
   display: flex;
   flex-wrap: wrap;
