@@ -80,10 +80,10 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Create functional form | H |2hrs| 0.5hrs |  |
-| Format form information using CSS | H | 3hrs| 1hr |  |
+| Create functional form | H |2hrs| 0.5hrs | 0.5hrs |
+| Format form information using CSS | H | 3hrs| 1hr | 1hr |
 | Create currently airing anime section | H | 4hrs|  |  |
-| Add top anime to header and format header section | H | 3hrs|  |  |
+| Add top anime to header and format header section | H | 3hrs| 1hr |  |
 | Add hover effects for the images | L | 3hrs| |  |
 | Go through all data I want to display for the anime | H | 2hrs| |  |
 | query for mobile | H | 3hrs|  |  |
