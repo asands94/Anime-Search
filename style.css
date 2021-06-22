@@ -18,3 +18,30 @@ header {
   display: flex;
   justify-content: center;
 }
+
+#bg-image-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: powderblue;
+  height: 450px;
+}
+
+#bg-image {
+  display: flex;
+
+}
+
+.header-text {
+  align-self: flex-start;
+  padding: 30px;
+}
+
+.header-description {
+  
+}
+
+.bg-header-image {
+  height: 400px;
+
+}

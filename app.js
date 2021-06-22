@@ -1,6 +1,8 @@
 const searchResults = document.getElementById('search-results')
 const searchImages = document.getElementById('search-images')
 const form = document.getElementById('anime-search-form')
+const bgImage = document.getElementById('bg-image')
+const bgImageTitle = document.getElementById('bg-image-title')
 
 const animeSearch = async () => {
   try {
@@ -19,7 +21,7 @@ const animeSearch = async () => {
 
       //Display search result names
       // let animeTitle = results[i].title
-      // animeTitleNames = document.createElement("h2")
+      // let animeTitleNames = document.createElement("h2")
       // animeTitleNames.textContent = animeTitle
       // searchResults.append(animeTitleNames)
 
@@ -38,11 +40,46 @@ const animeSearch = async () => {
 
     
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
 
-animeSearch()
+const animeHeader = async () => {
+
+  try {
+
+    const animeHeaderURL = `https://api.jikan.moe/v3/search/anime?q=fruitsbasket&limit=4`
+    const animeHeaderDisplay = await axios.get(animeHeaderURL)
+    console.log(animeHeaderDisplay.data.results[2])
+  
+    let headerTitle = animeHeaderDisplay.data.results[2].title
+    titleDisplay = document.createElement('h2')
+    titleDisplay.classList.add('header-text')
+    titleDisplay.textContent = headerTitle
+    bgImageTitle.prepend(titleDisplay)
+
+    let headerSyn = animeHeaderDisplay.data.results[2].synopsis
+    synDisplay = document.createElement('p')
+    synDisplay.classList.add('header-description')
+    synDisplay.textContent = headerSyn
+    bgImageTitle.prepend(synDisplay)
+
+    let headerImage = animeHeaderDisplay.data.results[2].image_url
+    const headerImg = document.createElement('img')
+    headerImg.setAttribute('src', headerImage)
+    headerImg.classList.add('bg-header-image')
+    bgImage.append(headerImg)
+
+    
+
+
+    
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+animeHeader()
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
