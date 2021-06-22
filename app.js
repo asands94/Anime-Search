@@ -1,4 +1,5 @@
-const searchResults = document.getElementById('search-results')
+const searchSection = document.getElementById('search-section')
+const searchTitles = document.getElementById('search-titles')
 const searchImages = document.getElementById('search-images')
 const form = document.getElementById('anime-search-form')
 const bgImage = document.getElementById('main-image')
@@ -9,33 +10,39 @@ const animeSearch = async () => {
   try {
     let animeShowName = document.getElementById('search-shows').value
     document.getElementById('search-shows').value = ''
-    const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=4`
+    const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=8`
     const animeSearchResults = await axios.get(animeSearchURL)
     // console.log(animeSearchResults.data.results)
     const results = animeSearchResults.data.results
     
-    searchResults.insertAdjacentHTML('afterbegin', "<h2>Search Results</h2>")
+    searchSection.insertAdjacentHTML('afterbegin', "<h2>Search Results</h2>")
     
     for (let i = 0; i < results.length; i++) {
       // console.log(results[i].image_url)
-      console.log(results[i].title)
+      // console.log(results[i].url)
 
-      //Display search result names
-      // let animeTitle = results[i].title
-      // let animeTitleNames = document.createElement("h2")
-      // animeTitleNames.textContent = animeTitle
-      // searchResults.append(animeTitleNames)
-
-
-    //Display search result names images
-
+      //Display search result images
       let animeImageResults = results[i].image_url
-      animeImage = document.createElement("img")
+      let animeImage = document.createElement("img")
       animeImage.setAttribute("src", animeImageResults)
-      animeImage.classList.add('limited-results')
-      // searchImages.appendChild(animeImage)
+      animeImage.classList.add('image-results')
+      searchImages.append(animeImage)
+      
+      //Display search result names
+      let animeTitle = results[i].title
+      let animeTitleNames = document.createElement("h3")
+      animeTitleNames.classList.add('search-result-titles')
+      animeTitleNames.textContent = animeTitle
+      animeImage.append(animeTitleNames)
 
-      searchImages.insertAdjacentElement('beforeend', animeImage)
+      // let link = results[i].url
+      // let animeTitleLinks = document.createElement('a')
+      // animeTitleLinks.classList.add('image-links')
+      // animeTitleLinks.title = animeTitle
+      // animeTitleLinks.setAttribute("href", link)
+      // searchImages.prepend(animeTitleLinks)
+
+
     }
 
 
@@ -84,13 +91,20 @@ animeHeader()
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
-  removeSearchResults()
+  // removeSearchTitles()
+  removeSearchRImages()
   animeSearch()
 })
 
-function removeSearchResults() {
-  while (searchResults.lastChild) {
-  searchResults.removeChild(searchResults.lastChild)
+function removeSearchTitles() {
+  while (searchTitles.lastChild) {
+  searchTitles.removeChild(searchTitles.lastChild)
+  }
+}
+
+function removeSearchRImages() {
+  while (searchImages.lastChild) {
+  searchImages.removeChild(searchImages.lastChild)
   }
 }
 
