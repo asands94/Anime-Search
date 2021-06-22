@@ -19,29 +19,30 @@ header {
   justify-content: center;
 }
 
-#bg-image-title {
+#main-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   background-color: powderblue;
-  height: 450px;
+  height: 500px;
+  align-items: center;
 }
 
-#bg-image {
+#main-border {
   display: flex;
-
-}
-
-.header-text {
-  align-self: flex-start;
-  padding: 30px;
-}
-
-.header-description {
-  
-}
-
-.bg-header-image {
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: orange;
   height: 400px;
+  align-items: center;
+  border: purple solid;
+}
 
+#main-text {
+  width: 300px;
+  margin: 25px
+}
+
+#main-image {
+  margin: 25px;
 }

@@ -1,8 +1,9 @@
 const searchResults = document.getElementById('search-results')
 const searchImages = document.getElementById('search-images')
 const form = document.getElementById('anime-search-form')
-const bgImage = document.getElementById('bg-image')
-const bgImageTitle = document.getElementById('bg-image-title')
+const bgImage = document.getElementById('main-image')
+const bgImageTitle = document.getElementById('main-text')
+const mainBorder = document.getElementById("main-border")
 
 const animeSearch = async () => {
   try {
@@ -62,7 +63,7 @@ const animeHeader = async () => {
     synDisplay = document.createElement('p')
     synDisplay.classList.add('header-description')
     synDisplay.textContent = headerSyn
-    bgImageTitle.prepend(synDisplay)
+    bgImageTitle.append(synDisplay)
 
     let headerImage = animeHeaderDisplay.data.results[2].image_url
     const headerImg = document.createElement('img')
