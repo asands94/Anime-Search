@@ -3,21 +3,34 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+.bg-header-image {
+  border-radius: 3%;
+}
+.popup-search {
+  margin: 0 0 0 375px;
+}
+
 .image-results {
-  background-size: cover;
+  height: 250px;
+  padding: 12px;
+  border-radius: 10%;
+  transition: transform .4s;
+}
+
+.image-results:hover {
+  filter: blur(4px);
+  transform: scale(1.05);
 }
 
 #main-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   background-color: powderblue;
   height: 500px;
   align-items: center;
 }
-#search-images {
-  width: 100%
-}
+
 #main-border {
   display: flex;
   flex-wrap: wrap;
@@ -36,3 +49,18 @@ header {
 #main-image {
   margin: 25px;
 }
+
+#image-container {
+  display: flex;
+  background-color: plum;
+  justify-content: center;
+  align-items: center;
+}
+#search-images {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  background-color: darkgray;
+  border: solid lawngreen
+}
+
