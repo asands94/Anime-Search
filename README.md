@@ -15,22 +15,25 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 
 ```
 {
-    "request_hash": "request:anime:c8a5be55579a0147b5c455245461fe69a7347e1b",
+    "request_hash": "request:search:b5021fb5569664933c0ddceeeda2cfdfbe5ad745",
     "request_cached": true,
-    "request_cache_expiry": 82064,
-    "episodes_last_page": 1,
-    "episodes": [
+    "request_cache_expiry": 184727,
+    "results": [
         {
-            "episode_id": 1,
-            "title": "Asteroid Blues",
-            "title_japanese": "アステロイド・ブルース",
-            "title_romanji": "Asteroid Blues ",
-            "aired": "1998-10-24T00:00:00+00:00",
-            "filler": false,
-            "recap": false,
-            "video_url": "https://myanimelist.net/anime/1/Cowboy_Bebop/episode/1",
-            "forum_url": "https://myanimelist.net/forum/?topicid=29264"
-        }
+            "mal_id": 20,
+            "url": "https://myanimelist.net/anime/20/Naruto",
+            "image_url": "https://cdn.myanimelist.net/images/anime/13/17405.jpg?s=59241469eb470604a792add6fbe7cce6",
+            "title": "Naruto",
+            "airing": false,
+            "synopsis": "Moments prior to Naruto Uzumaki's birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi'...",
+            "type": "TV",
+            "episodes": 220,
+            "score": 7.93,
+            "start_date": "2002-10-03T00:00:00+00:00",
+            "end_date": "2007-02-08T00:00:00+00:00",
+            "members": 2082967,
+            "rated": "PG-13"
+        },
 ```
 
 ## Wireframes
