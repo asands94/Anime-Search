@@ -42,7 +42,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 #### MVP 
 
 - Allow user to search with a form input to find information about different anime 
-- Render image, title, and description based on the search results 
+- Render image, title, based on the search results 
 - Show anime airing that week
 - Have dynamic header image that showcases most popular anime at the time
 
@@ -53,6 +53,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 - Display different genres
 - Create image carousel in header that displays popular anime characters as well as most popular anime show at the moment
 - Let user add anime to a "watch later" list
+- Add description to anime that the user shows for on a different page
 
 ## Project Schedule
 
