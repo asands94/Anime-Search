@@ -104,7 +104,7 @@ const currentAnime = async () => {
     currentHeader.insertAdjacentHTML('afterbegin', `<h2>${seasonName} Anime</h2>`)
     currentHeader.classList.add("anime-genres")
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
       let currentAnimeDiv = document.createElement('div')
@@ -156,7 +156,7 @@ const upcomingAnime = async () => {
     upcomingHeader.insertAdjacentHTML('afterbegin', `<h2>Upcoming Anime</h2>`)
     upcomingHeader.classList.add("anime-genres")
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
       let upcomingAnimeDiv = document.createElement('div')
@@ -209,7 +209,7 @@ const actionGenre = async () => {
     actionHeader.insertAdjacentHTML('afterbegin', `<h2>${actionGenreName}</h2>`)
     actionHeader.classList.add("anime-genres")
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
       let actionAnimeDiv = document.createElement('div')
@@ -262,7 +262,7 @@ const fantasyGenre = async () => {
     fantasyHeader.insertAdjacentHTML('afterbegin', `<h2>${fantasyGenreName}</h2>`)
     fantasyHeader.classList.add("anime-genres")
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
       let fantasyAnimeDiv = document.createElement('div')
@@ -315,7 +315,7 @@ const romanceGenre = async () => {
     romanceHeader.insertAdjacentHTML('afterbegin', `<h2>${romanceGenreName}</h2>`)
     romanceHeader.classList.add("anime-genres")
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
       let romanceAnimeDiv = document.createElement('div')
@@ -340,8 +340,6 @@ const romanceGenre = async () => {
       romanceAnimeImage.setAttribute("src", romanceAnimeImageResults)
       romanceAnimeImage.classList.add('romance-images')
       romanceAnimeDiv.append(romanceAnimeImage)
-    
-
     }
 
   } catch (error) {

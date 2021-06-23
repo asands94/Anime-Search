@@ -20,7 +20,7 @@ footer {
   padding: 10px;
   text-align: center;
   background-color: darkgreen;
-}
+} 
 
 .header-text {
   font-size: x-large;
@@ -34,11 +34,11 @@ footer {
   padding: 0;
 }
 .image-div, 
- .current-div, 
- .upcoming-div,
- .action-div, 
- .fantasy-div, 
- .romance-div {
+.current-div, 
+.upcoming-div,
+.action-div, 
+.fantasy-div, 
+.romance-div {
   display: flex;
   flex-flow: column wrap;
   height: 280px;
@@ -49,9 +49,18 @@ footer {
   padding: 10px 0 0 0;
   /* border: solid darkgray; */
   border-radius: 8%;
-  margin-bottom: 20px;
-  margin-left: 15px;
+  margin: 0 7px 20px 7px;
+  transition: transform .4s;
 }
+
+.image-div:hover, 
+.current-div:hover, 
+.upcoming-div:hover,
+.action-div:hover, 
+.fantasy-div:hover, 
+.romance-div:hover {
+  transform: scale(1.1)
+ }
 
 .image-results, 
 .current-images,
@@ -61,14 +70,8 @@ footer {
 .romance-images {
   height: 250px;
   width: 170px;
-  /* padding: 12px; */
-  /* transition: transform .4s; */
+  /* background-color: darkorange; */
 }
-
-/* .image-results:hover {
-  filter: blur(4px);
-  transform: scale(1.05);
-} */
 
 #anime-search-form {
   margin-right: 20px;
@@ -120,17 +123,26 @@ footer {
   justify-content: center;
   align-items: center;
 }
-#search-images, 
+#search-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+} 
+
 #current-images,
 #upcoming-images,
 #action-images, 
 #fantasy-images, 
 #romance-images {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  overflow: scroll;
   /* background-color: darkgray; */
   /* border: solid lawngreen; */
+  height: 330px;
+  align-items: flex-end;
 }
 
 @media only screen and (max-width: 800px) {
