@@ -79,3 +79,30 @@ header {
   /* border: solid lawngreen; */
 }
 
+@media only screen and (max-width: 650px) {
+  h2 {
+    font-size: large;
+  }
+  
+  .bg-header-image {
+    height: 200px; 
+  }
+
+  .popup-search {
+    text-align: justify;
+  }
+
+  #main-border {
+    height: 100%;
+  }
+  #main-image, 
+  #main-text {
+    margin: 10px;
+  }
+
+  #main-text {
+    width: 200px;
+  }
+
+
+}

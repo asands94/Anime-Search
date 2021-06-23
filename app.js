@@ -29,9 +29,9 @@ const animeSearch = async () => {
 
       //Display search result names
       let link = results[i].url
-      let animeTitle = results[i].title
-      let length = 21
-      let trimmedAnimeTitle = animeTitle.substring(0, length)
+      let animeTitle = `${results[i].title}`
+      let length = 10
+      let trimmedAnimeTitle = `${animeTitle.substring(0, length)}...`
       let animeTitleNames = document.createElement("a")
       animeTitleNames.classList.add('search-result-titles')
       animeTitleNames.setAttribute("href", link)
