@@ -86,7 +86,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | Add top anime to header and format header section | H | 3hrs| 1.5hr |  |
 | Add hover effects for the images | L | 3hrs| 1hr |  |
 | Go through all data I want to display for the anime | H | 2hrs| |  |
-| query for mobile | H | 3hrs|  |  |
+| query for mobile | H | 3hrs| 0.5hrs |  |
 | Format general website (background, footer) | H | 3hrs|  |  |
 | Testing out information taken from API (image sizes, kinds of information, search functionality) | H | 3hrs|  |  |
 | Add image carousel | L | 5hrs|  |  |
