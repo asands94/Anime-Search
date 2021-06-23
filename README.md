@@ -67,7 +67,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 |---|---| ---|
 |June 21| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |June 22| Project Approval / HTML Boilerplate / JS part of input form completed & appended items showing up | Complete
-|June 23| Add current anime airing for the week / Style the page in CSS based on wireframe | Incomplete
+|June 23| Add current anime airing for the week / Style the page in CSS based on wireframe | Complete
 |June 24| Initial Clickable Model / Additional CSS: hover effects,  animations / work on mobile UI  | Incomplete
 |June 25| MVP | Incomplete
 |June 28| Presentations | Incomplete
