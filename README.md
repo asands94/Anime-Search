@@ -44,11 +44,11 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 
 #### MVP 
 
-- Allow user to search with a form input to find information about different anime 
-- Render image and title, based on the search results 
-- Have dynamic header image that showcases most popular anime at the time (may not change often)
-- Styling with flexbox
-- Media query for mobile
+- ~~Allow user to search with a form input to find information about different anime 
+- ~~Render image and title, based on the search results 
+- ~~Have dynamic header image that showcases most popular anime at the time (may not change often)
+- ~~Styling with flexbox
+- ~~Media query for mobile
 
 
 #### PostMVP  
@@ -59,7 +59,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 - Create image carousel in header that displays popular anime characters as well as most popular anime show at the moment
 - Let user add anime to a "watch later" list
 - Add description to anime that the user shows for on a different page
-- Show currentlly airing anime
+- ~~Show currently airing anime
 
 ## Project Schedule
 
@@ -82,7 +82,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | --- | :---: |  :---: | :---: | :---: |
 | Create functional form | H |2hrs| 0.5hrs | 0.5hrs |
 | Format form information using CSS | H | 3hrs| 6.5hrs | |
-| Create currently airing anime section | H | 4hrs|  |  |
+| Create currently airing anime section | H | 4hrs| 0.5hrs |  |
 | Add top anime to header and format header section | H | 3hrs| 1.5hr |  |
 | Add hover effects for the images | L | 3hrs| 1hr |  |
 | Go through all data I want to display for the anime | H | 2hrs| |  |
