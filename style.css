@@ -2,6 +2,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color:rosybrown;
 }
 
 header {
@@ -47,7 +48,7 @@ footer {
   background-color: rgb(240, 240, 240);
   width: 170px;
   padding: 10px 0 0 0;
-  /* border: solid darkgray; */
+  /* border: solid rgb(139, 21, 21); */
   border-radius: 8%;
   margin: 0 7px 20px 7px;
   transition: transform .4s;
@@ -139,10 +140,12 @@ footer {
   flex-wrap: nowrap;
   justify-content: center;
   overflow: scroll;
-  /* background-color: darkgray; */
+  /* background-color: gray; */
   /* border: solid lawngreen; */
   height: 330px;
   align-items: flex-end;
+  width: 90%;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media only screen and (max-width: 800px) {
