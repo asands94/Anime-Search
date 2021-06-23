@@ -28,6 +28,7 @@ footer {
 }
 .image-div, 
  .current-div, 
+ .upcoming-div,
  .action-div, 
  .fantasy-div, 
  .romance-div {
@@ -46,7 +47,8 @@ footer {
 }
 
 .image-results, 
-.current-images, 
+.current-images,
+.upcoming-images, 
 .action-images, 
 .fantasy-images, 
 .romance-images {
@@ -97,7 +99,8 @@ footer {
 }
 
 #image-container, 
-#currently-airing, 
+#currently-airing,
+#upcoming-airing, 
 #action-genre, 
 #fantasy-genre, 
 #romance-genre {
@@ -107,7 +110,8 @@ footer {
   align-items: center;
 }
 #search-images, 
-#current-images, 
+#current-images,
+#upcoming-images,
 #action-images, 
 #fantasy-images, 
 #romance-images {

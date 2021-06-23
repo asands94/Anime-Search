@@ -139,6 +139,58 @@ const currentAnime = async () => {
 
 currentAnime()
 
+const upcomingHeader = document.getElementById('upcoming-header')
+const upcomingImages = document.getElementById('upcoming-images')
+
+const upcomingAnime = async () => {
+
+  try {
+
+    const upcomingAnimeURL = `https://api.jikan.moe/v3/season/later`
+    const upcomingShows = await axios.get(upcomingAnimeURL)
+    // console.log(upcomingShows.data.anime)
+    let upcomingName = upcomingShows.data.season_name
+
+    let results = upcomingShows.data.anime
+
+    upcomingHeader.insertAdjacentHTML('afterbegin', `<h2>${upcomingName} Anime</h2>`)
+    upcomingHeader.classList.add("anime-genres")
+
+    for (let i = 0; i < 8; i++) {
+      // console.log(results[i].title)
+
+      let upcomingAnimeDiv = document.createElement('div')
+      upcomingImages.append(upcomingAnimeDiv)
+      upcomingAnimeDiv.classList.add("upcoming-div")
+
+
+      //Display search result names
+      let link = results[i].url
+      let upcomingAnimeTitle = `${results[i].title}`
+      let length = 10
+      let trimmedAnimeTitle = `${upcomingAnimeTitle.substring(0, length)}...`
+      let upcomingAnimeTitleNames = document.createElement("a")
+      upcomingAnimeTitleNames.classList.add('upcoming-titles')
+      upcomingAnimeTitleNames.setAttribute("href", link)
+      upcomingAnimeTitleNames.textContent = trimmedAnimeTitle
+      upcomingAnimeDiv.append(upcomingAnimeTitleNames)
+
+      //Display search result images
+      let upcomingAnimeImageResults = results[i].image_url
+      let upcomingAnimeImage = document.createElement("img")
+      upcomingAnimeImage.setAttribute("src", upcomingAnimeImageResults)
+      upcomingAnimeImage.classList.add('upcoming-images')
+      upcomingAnimeDiv.append(upcomingAnimeImage)
+
+    }
+    
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+upcomingAnime()
+
 
 const actionHeader = document.getElementById('action-header')
 const actionImages = document.getElementById('action-images')
