@@ -91,10 +91,10 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | Testing out information taken from API (image sizes, kinds of information, search functionality) | H | 3hrs|  |  |
 | Add image carousel | L | 5hrs|  |  |
 | Add links at top of page that go to different sections | L | 1hrs| 0.5hrs |  |
-| add go back up top of the page button | L | 2hrs|  |  |
+| add go back up top of the page button | L | 2hrs| 0.5hrs |  |
 | create watch later list | L | 4hrs|  |  |
 | add different genres to page | L | 1hr| 0.5hrs | 0.5hrs |
-| Total |  | 38hrs| 14hrs |  |
+| Total |  | 38hrs| 14.5hrs |  |
 
 ## Code Snippet
 
