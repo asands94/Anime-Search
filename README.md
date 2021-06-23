@@ -46,7 +46,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 
 - ~~Allow user to search with a form input to find information about different anime~~
 - ~~Render image and title, based on the search results~~
-- ~~Have dynamic header image that showcases most popular anime at the time (may not change often)~~
+- ~~Have dynamic header image that showcases most popular anime at the time (may not change often)~~ (the API does not have a synopsis of popular anime, so this will be a static image instead in order to include synopsis)
 - ~~Styling with flexbox~~
 - ~~Media query for mobile~~
 
