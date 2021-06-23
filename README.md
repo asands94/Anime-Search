@@ -53,12 +53,12 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 
 #### PostMVP  
 
-- Display list of popular anime on the page that are clickable and bring user to information page
+- Display list of popular anime on the page that are clickable and bring user to information page (popup)
 - ~~Display upcoming anime that has been announced~~
 - ~~Display different genres~~
 - Create image carousel in header that displays popular anime characters as well as most popular anime show at the moment
 - Let user add anime to a "watch later" list
-- Add description to anime that the user shows for on a different page
+- Add description to anime that the user searches for on a popup page
 - ~~Show currently airing anime~~
 
 ## Project Schedule
@@ -69,7 +69,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 |June 22| Project Approval / HTML Boilerplate / JS part of input form completed & appended items showing up | Complete
 |June 23| Add current anime airing for the week / Style the page in CSS based on wireframe | Complete
 |June 24| Initial Clickable Model / Additional CSS: hover effects,  animations / work on mobile UI  | Incomplete
-|June 25| MVP | Incomplete
+|June 25| MVP | Complete
 |June 28| Presentations | Incomplete
 
 ## Priority Matrix
