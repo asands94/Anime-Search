@@ -54,7 +54,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 #### PostMVP  
 
 - Display list of popular anime on the page that are clickable and bring user to information page
-- Display upcoming anime that has been announced
+- ~~Display upcoming anime that has been announced~~
 - ~~Display different genres~~
 - Create image carousel in header that displays popular anime characters as well as most popular anime show at the moment
 - Let user add anime to a "watch later" list
