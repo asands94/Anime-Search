@@ -1,8 +1,7 @@
 const searchHeader = document.getElementById('search-header')
-const currentHeader = document.getElementById('current-header')
 const searchTitles = document.getElementById('search-titles')
 const searchImages = document.getElementById('search-images')
-const currentImages = document.getElementById('current-images')
+
 const form = document.getElementById('anime-search-form')
 const bgImage = document.getElementById('main-image')
 const bgImageTitle = document.getElementById('main-text')
@@ -88,6 +87,8 @@ const animeHeader = async () => {
 }
 animeHeader()
 
+const currentHeader = document.getElementById('current-header')
+const currentImages = document.getElementById('current-images')
 
 const currentAnime = async () => {
 
@@ -95,7 +96,7 @@ const currentAnime = async () => {
 
     const currentAnimeURL = `https://api.jikan.moe/v3/season`
     const currentShows = await axios.get(currentAnimeURL)
-    console.log(currentShows.data.anime)
+    // console.log(currentShows.data.anime)
     let seasonName = currentShows.data.season_name
 
     let results = currentShows.data.anime
@@ -104,7 +105,7 @@ const currentAnime = async () => {
     currentHeader.classList.add("anime-genres")
 
     for (let i = 0; i < 8; i++) {
-      console.log(results[i].title)
+      // console.log(results[i].title)
 
       let currentAnimeDiv = document.createElement('div')
       currentImages.append(currentAnimeDiv)
@@ -129,7 +130,6 @@ const currentAnime = async () => {
       currentAnimeImage.classList.add('current-images')
       currentAnimeDiv.append(currentAnimeImage)
 
-
     }
     
   } catch (error) {
@@ -139,6 +139,165 @@ const currentAnime = async () => {
 
 currentAnime()
 
+
+const actionHeader = document.getElementById('action-header')
+const actionImages = document.getElementById('action-images')
+
+const actionGenre = async () => {
+
+  try {
+
+    const actionGenreURL = `https://api.jikan.moe/v3/genre/anime/1`
+    const actionGenre = await axios.get(actionGenreURL)
+    console.log(actionGenre.data.mal_url.name)
+    let actionGenreName = actionGenre.data.mal_url.name
+
+    let results = actionGenre.data.anime
+
+    actionHeader.insertAdjacentHTML('afterbegin', `<h2>${actionGenreName}</h2>`)
+    actionHeader.classList.add("anime-genres")
+
+    for (let i = 0; i < 8; i++) {
+      // console.log(results[i].title)
+
+      let actionAnimeDiv = document.createElement('div')
+      actionImages.append(actionAnimeDiv)
+      actionAnimeDiv.classList.add("action-div")
+
+
+      //Display search result names
+      let link = results[i].url
+      let actionAnimeTitle = `${results[i].title}`
+      let length = 10
+      let trimmedAnimeTitle = `${actionAnimeTitle.substring(0, length)}...`
+      let actionAnimeTitleNames = document.createElement("a")
+      actionAnimeTitleNames.classList.add('action-titles')
+      actionAnimeTitleNames.setAttribute("href", link)
+      actionAnimeTitleNames.textContent = trimmedAnimeTitle
+      actionAnimeDiv.append(actionAnimeTitleNames)
+
+      //Display search result images
+      let actionAnimeImageResults = results[i].image_url
+      let actionAnimeImage = document.createElement("img")
+      actionAnimeImage.setAttribute("src", actionAnimeImageResults)
+      actionAnimeImage.classList.add('action-images')
+      actionAnimeDiv.append(actionAnimeImage)
+    
+
+    }
+
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+actionGenre()
+
+const fantasyHeader = document.getElementById('fantasy-header')
+const fantasyImages = document.getElementById('fantasy-images')
+
+const fantasyGenre = async () => {
+
+  try {
+
+    const fantasyGenreURL = `https://api.jikan.moe/v3/genre/anime/10`
+    const fantasyGenre = await axios.get(fantasyGenreURL)
+    console.log(fantasyGenre.data.mal_url.name)
+    let fantasyGenreName = fantasyGenre.data.mal_url.name
+
+    let results = fantasyGenre.data.anime
+
+    fantasyHeader.insertAdjacentHTML('afterbegin', `<h2>${fantasyGenreName}</h2>`)
+    fantasyHeader.classList.add("anime-genres")
+
+    for (let i = 0; i < 8; i++) {
+      // console.log(results[i].title)
+
+      let fantasyAnimeDiv = document.createElement('div')
+      fantasyImages.append(fantasyAnimeDiv)
+      fantasyAnimeDiv.classList.add("fantasy-div")
+
+
+      //Display search result names
+      let link = results[i].url
+      let fantasyAnimeTitle = `${results[i].title}`
+      let length = 10
+      let trimmedAnimeTitle = `${fantasyAnimeTitle.substring(0, length)}...`
+      let fantasyAnimeTitleNames = document.createElement("a")
+      fantasyAnimeTitleNames.classList.add('fantasy-titles')
+      fantasyAnimeTitleNames.setAttribute("href", link)
+      fantasyAnimeTitleNames.textContent = trimmedAnimeTitle
+      fantasyAnimeDiv.append(fantasyAnimeTitleNames)
+
+      //Display search result images
+      let fantasyAnimeImageResults = results[i].image_url
+      let fantasyAnimeImage = document.createElement("img")
+      fantasyAnimeImage.setAttribute("src", fantasyAnimeImageResults)
+      fantasyAnimeImage.classList.add('fantasy-images')
+      fantasyAnimeDiv.append(fantasyAnimeImage)
+    
+
+    }
+
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+fantasyGenre()
+
+const romanceHeader = document.getElementById('romance-header')
+const romanceImages = document.getElementById('romance-images')
+
+const romanceGenre = async () => {
+
+  try {
+
+    const romanceGenreURL = `https://api.jikan.moe/v3/genre/anime/22`
+    const romanceGenre = await axios.get(romanceGenreURL)
+    console.log(romanceGenre.data)
+    let romanceGenreName = romanceGenre.data.mal_url.name
+
+    let results = romanceGenre.data.anime
+
+    romanceHeader.insertAdjacentHTML('afterbegin', `<h2>${romanceGenreName}</h2>`)
+    romanceHeader.classList.add("anime-genres")
+
+    for (let i = 0; i < 8; i++) {
+      // console.log(results[i].title)
+
+      let romanceAnimeDiv = document.createElement('div')
+      romanceImages.append(romanceAnimeDiv)
+      romanceAnimeDiv.classList.add("romance-div")
+
+
+      //Display search result names
+      let link = results[i].url
+      let romanceAnimeTitle = `${results[i].title}`
+      let length = 10
+      let trimmedAnimeTitle = `${romanceAnimeTitle.substring(0, length)}...`
+      let romanceAnimeTitleNames = document.createElement("a")
+      romanceAnimeTitleNames.classList.add('romance-titles')
+      romanceAnimeTitleNames.setAttribute("href", link)
+      romanceAnimeTitleNames.textContent = trimmedAnimeTitle
+      romanceAnimeDiv.append(romanceAnimeTitleNames)
+
+      //Display search result images
+      let romanceAnimeImageResults = results[i].image_url
+      let romanceAnimeImage = document.createElement("img")
+      romanceAnimeImage.setAttribute("src", romanceAnimeImageResults)
+      romanceAnimeImage.classList.add('romance-images')
+      romanceAnimeDiv.append(romanceAnimeImage)
+    
+
+    }
+
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+romanceGenre()
 
 
 form.addEventListener('submit', (e) => {
