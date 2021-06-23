@@ -20,7 +20,7 @@ footer {
   margin-top: auto;
   padding: 10px;
   text-align: center;
-  background-color: darkgreen;
+  background-color: rosybrown;
 } 
 
 .header-text {
@@ -148,6 +148,17 @@ footer {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#back-up-div {
+  text-align: right;
+}
+
+#back-up {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  font-size: xx-large;
+}
+
 @media only screen and (max-width: 800px) {
   header {
     justify-content: space-between;
@@ -179,7 +190,7 @@ footer {
   .fantasy-div, 
   .romance-div {
     margin: 7px;
-  }
+}
 
   #search-shows {
     width: 90px;
@@ -208,6 +219,14 @@ footer {
   #fantasy-images, 
   #romance-images {
     width: 80vh;
+    align-items: center;
 } 
+
+  #search-images {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow: scroll;
+}
 
 }

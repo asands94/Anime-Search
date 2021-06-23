@@ -357,7 +357,7 @@ form.addEventListener('submit', (e) => {
   removeSearchWord()
   removeSearchRImages()
   animeSearch()
-  document.getElementById("footer").scrollIntoView(true);
+  // document.getElementById("search-header").scrollIntoView(true);
 })
 
 function removeSearchWord() {
@@ -372,3 +372,13 @@ function removeSearchRImages() {
   }
 }
 
+const toTop = document.getElementById("back-up")
+
+toTop.addEventListener('click', (e) => {
+  e.preventDefault()
+  scrollToTop()
+})
+
+const scrollToTop = () => {
+  window.scrollTo(0, 0)
+}
