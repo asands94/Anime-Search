@@ -45,10 +45,10 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 #### MVP 
 
 - ~~Allow user to search with a form input to find information about different anime~~
-- Render image and title, based on the search results
-- Have dynamic header image that showcases most popular anime at the time (may not change often)
-- Styling with flexbox
-- Media query for mobile~~
+- ~~Render image and title, based on the search results~~
+- ~~Have dynamic header image that showcases most popular anime at the time (may not change often)~~
+- ~~Styling with flexbox~~
+- ~~Media query for mobile~~
 
 
 #### PostMVP  
