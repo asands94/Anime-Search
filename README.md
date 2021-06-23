@@ -46,7 +46,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 
 - ~~Allow user to search with a form input to find information about different anime~~
 - ~~Render image and title, based on the search results~~
-- ~~Have dynamic header image that showcases most popular anime at the time (may not change often)~~ (the API does not have a synopsis of popular anime, so this will be a static image instead in order to include synopsis)
+- ~~Have dynamic header image that showcases most popular anime at the time (may not change often)~~ (the API does not have a synopsis of popular anime, so this will be a static image instead in order to include synopsis pulled from the API)
 - ~~Styling with flexbox~~
 - ~~Media query for mobile~~
 
@@ -82,9 +82,9 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | --- | :---: |  :---: | :---: | :---: |
 | Create functional form | H |2hrs| 0.5hrs | 0.5hrs |
 | Format form information using CSS | H | 3hrs| 6.5hrs | |
-| Create currently airing anime section | H | 4hrs| 0.5hrs |  |
-| Add top anime to header and format header section | H | 3hrs| 1.5hr |  |
-| Add hover effects for the images | L | 3hrs| 1hr |  |
+| Create currently airing anime section | H | 4hrs| 0.5hrs | 0.5hrs |
+| Add top anime to header and format header section | H | 3hrs| 1.5hrs | 1.5hrs |
+| Add hover effects for the images | L | 3hrs| 1hr | 1hr |
 | Go through all data I want to display for the anime | H | 2hrs| |  |
 | query for mobile | H | 3hrs| 2hr |  |
 | Format general website (background, footer) | H | 3hrs| 1hr |  |
@@ -93,7 +93,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | Add links at top of page that go to different sections | L | 1hrs| 0.5hrs |  |
 | add go back up top of the page button | L | 2hrs|  |  |
 | create watch later list | L | 4hrs|  |  |
-| add different genres to page | L | 1hr| 0.5hrs |  |
+| add different genres to page | L | 1hr| 0.5hrs | 0.5hrs |
 | Total |  | 38hrs| 14hrs |  |
 
 ## Code Snippet
