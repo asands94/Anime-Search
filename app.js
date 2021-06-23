@@ -63,11 +63,13 @@ const animeHeader = async () => {
 
     const animeHeaderURL = `https://api.jikan.moe/v3/search/anime?q=fruitsbasket&limit=4`
     const animeHeaderDisplay = await axios.get(animeHeaderURL)
-    console.log(animeHeaderDisplay.data.results[2])
-  
+    console.log(animeHeaderDisplay.data.results[2].url)
+
+    let headerLink = animeHeaderDisplay.data.results[2].url
     let headerTitle = animeHeaderDisplay.data.results[2].title
-    titleDisplay = document.createElement('h2')
+    titleDisplay = document.createElement('a')
     titleDisplay.classList.add('header-text')
+    titleDisplay.setAttribute("href", headerLink)
     titleDisplay.textContent = headerTitle
     bgImageTitle.prepend(titleDisplay)
 
