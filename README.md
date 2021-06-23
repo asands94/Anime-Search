@@ -55,7 +55,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 
 - Display list of popular anime on the page that are clickable and bring user to information page
 - Display upcoming anime that has been announced
-- Display different genres
+- ~~Display different genres~~
 - Create image carousel in header that displays popular anime characters as well as most popular anime show at the moment
 - Let user add anime to a "watch later" list
 - Add description to anime that the user shows for on a different page
@@ -93,6 +93,8 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | Add links at top of page that go to different sections | L | 1hrs|  |  |
 | add go go back up top of the page button | L | 2hrs|  |  |
 | create watch later list | L | 4hrs|  |  |
+| add different genres to page | L | 1hr| 0.5hrs |  |
+
 | Total |  | 38hrs|  |  |
 
 ## Code Snippet
