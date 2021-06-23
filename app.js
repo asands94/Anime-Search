@@ -153,7 +153,7 @@ const upcomingAnime = async () => {
 
     let results = upcomingShows.data.anime
 
-    upcomingHeader.insertAdjacentHTML('afterbegin', `<h2>${upcomingName} Anime</h2>`)
+    upcomingHeader.insertAdjacentHTML('afterbegin', `<h2>Upcoming Anime</h2>`)
     upcomingHeader.classList.add("anime-genres")
 
     for (let i = 0; i < 8; i++) {
@@ -354,9 +354,12 @@ romanceGenre()
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
+  
+  // document.getElementById("footer").scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
   removeSearchWord()
   removeSearchRImages()
   animeSearch()
+  document.getElementById("footer").scrollIntoView(true);
 })
 
 function removeSearchWord() {
