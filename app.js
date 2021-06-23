@@ -1,6 +1,8 @@
 const searchHeader = document.getElementById('search-header')
+const currentHeader = document.getElementById('current-header')
 const searchTitles = document.getElementById('search-titles')
 const searchImages = document.getElementById('search-images')
+const currentImages = document.getElementById('current-images')
 const form = document.getElementById('anime-search-form')
 const bgImage = document.getElementById('main-image')
 const bgImageTitle = document.getElementById('main-text')
@@ -16,7 +18,7 @@ const animeSearch = async () => {
     const results = animeSearchResults.data.results
     
     searchHeader.insertAdjacentHTML('afterbegin', "<h2>Search Results</h2>")
-    searchHeader.classList.add("popup-search")
+    searchHeader.classList.add("anime-genres")
     
     for (let i = 0; i < results.length; i++) {
       // console.log(results[i].image_url)
@@ -43,14 +45,9 @@ const animeSearch = async () => {
       let animeImage = document.createElement("img")
       animeImage.setAttribute("src", animeImageResults)
       animeImage.classList.add('image-results')
-      imageDiv.append(animeImage)
-
-      
-      
+      imageDiv.append(animeImage)    
       
     }
-
-
     
   } catch (error) {
     console.error(error)
@@ -63,7 +60,7 @@ const animeHeader = async () => {
 
     const animeHeaderURL = `https://api.jikan.moe/v3/search/anime?q=fruitsbasket&limit=4`
     const animeHeaderDisplay = await axios.get(animeHeaderURL)
-    console.log(animeHeaderDisplay.data.results[2].url)
+    // console.log(animeHeaderDisplay.data.results[2].url)
 
     let headerLink = animeHeaderDisplay.data.results[2].url
     let headerTitle = animeHeaderDisplay.data.results[2].title
@@ -84,28 +81,76 @@ const animeHeader = async () => {
     headerImg.setAttribute('src', headerImage)
     headerImg.classList.add('bg-header-image')
     bgImage.append(headerImg)
-
     
+  } catch (error) {
+    console.error(error)
+  }
+}
+animeHeader()
 
 
+const currentAnime = async () => {
+
+  try {
+
+    const currentAnimeURL = `https://api.jikan.moe/v3/season`
+    const currentShows = await axios.get(currentAnimeURL)
+    console.log(currentShows.data.anime)
+    let seasonName = currentShows.data.season_name
+
+    let results = currentShows.data.anime
+
+    currentHeader.insertAdjacentHTML('afterbegin', `<h2>${seasonName} Anime</h2>`)
+    currentHeader.classList.add("anime-genres")
+
+    for (let i = 0; i < 8; i++) {
+      console.log(results[i].title)
+
+      let currentAnimeDiv = document.createElement('div')
+      currentImages.append(currentAnimeDiv)
+      currentAnimeDiv.classList.add("current-div")
+
+
+      //Display search result names
+      let link = results[i].url
+      let currentAnimeTitle = `${results[i].title}`
+      let length = 10
+      let trimmedAnimeTitle = `${currentAnimeTitle.substring(0, length)}...`
+      let currentAnimeTitleNames = document.createElement("a")
+      currentAnimeTitleNames.classList.add('current-titles')
+      currentAnimeTitleNames.setAttribute("href", link)
+      currentAnimeTitleNames.textContent = trimmedAnimeTitle
+      currentAnimeDiv.append(currentAnimeTitleNames)
+
+      //Display search result images
+      let currentAnimeImageResults = results[i].image_url
+      let currentAnimeImage = document.createElement("img")
+      currentAnimeImage.setAttribute("src", currentAnimeImageResults)
+      currentAnimeImage.classList.add('current-images')
+      currentAnimeDiv.append(currentAnimeImage)
+
+
+    }
     
   } catch (error) {
     console.error(error)
   }
 }
 
-animeHeader()
+currentAnime()
+
+
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
-  // removeSearchTitles()
+  removeSearchWord()
   removeSearchRImages()
   animeSearch()
 })
 
-function removeSearchTitles() {
-  while (searchTitles.lastChild) {
-  searchTitles.removeChild(searchTitles.lastChild)
+function removeSearchWord() {
+  while (searchHeader.lastChild) {
+    searchHeader.removeChild(searchHeader.lastChild)
   }
 }
 

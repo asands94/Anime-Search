@@ -22,11 +22,12 @@ footer {
 .bg-header-image {
   border-radius: 3%;
 }
-.popup-search {
+.anime-genres {
   margin: 0 0 0 90px;
   padding: 0;
 }
-.image-div {
+.image-div, 
+ .current-div{
   display: flex;
   flex-flow: column wrap;
   height: 280px;
@@ -41,7 +42,8 @@ footer {
   margin-left: 15px;
 }
 
-.image-results {
+.image-results, 
+.current-images {
   height: 250px;
   width: 170px;
   /* padding: 12px; */
@@ -88,13 +90,15 @@ footer {
   margin: 25px;
 }
 
-#image-container {
+#image-container, 
+#currently-airing {
   display: flex;
   /* background-color: plum; */
   justify-content: center;
   align-items: center;
 }
-#search-images {
+#search-images, 
+#current-images {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -116,7 +120,7 @@ footer {
     font-weight: bolder;
   }
 
-  .popup-search {
+  .anime-genres {
     text-align: justify;
   }
 
