@@ -94,7 +94,6 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | add go back up top of the page button | L | 2hrs|  |  |
 | create watch later list | L | 4hrs|  |  |
 | add different genres to page | L | 1hr| 0.5hrs |  |
-
 | Total |  | 38hrs| 14hrs |  |
 
 ## Code Snippet
