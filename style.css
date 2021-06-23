@@ -23,7 +23,8 @@ footer {
   border-radius: 3%;
 }
 .anime-genres {
-  margin: 0 0 0 90px;
+  margin: 0;
+  text-align: center;
   padding: 0;
 }
 .image-div, 
@@ -136,8 +137,13 @@ footer {
     font-weight: bolder;
   }
 
-  .anime-genres {
-    text-align: justify;
+  .image-div,
+  .current-div, 
+  .upcoming-div,
+  .action-div, 
+  .fantasy-div, 
+  .romance-div {
+    margin: 7px;
   }
 
   #search-shows {
@@ -158,10 +164,6 @@ footer {
 
   #main-text {
     width: 200px;
-  }
-
-  .image-div {
-    margin: 7px;
   }
 
 }
