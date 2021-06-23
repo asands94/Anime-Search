@@ -10,7 +10,7 @@ const animeSearch = async () => {
   try {
     let animeShowName = document.getElementById('search-shows').value
     document.getElementById('search-shows').value = ''
-    const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=4`
+    const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=24`
     const animeSearchResults = await axios.get(animeSearchURL)
     // console.log(animeSearchResults.data.results)
     const results = animeSearchResults.data.results
@@ -21,23 +21,33 @@ const animeSearch = async () => {
     for (let i = 0; i < results.length; i++) {
       // console.log(results[i].image_url)
       // console.log(results[i].url)
+      
+      
+      let imageDiv = document.createElement('div')
+      searchImages.append(imageDiv)
+      imageDiv.classList.add("image-div")
 
       //Display search result names
-      // let link = results[i].url
-      // let animeTitle = results[i].title
-      // let animeTitleNames = document.createElement("a")
-      // animeTitleNames.classList.add('search-result-titles')
-      // animeTitleNames.setAttribute("href", link)
-      // animeTitleNames.textContent = animeTitle
-      // searchTitles.append(animeTitleNames)
+      let link = results[i].url
+      let animeTitle = results[i].title
+      let length = 21
+      let trimmedAnimeTitle = animeTitle.substring(0, length)
+      let animeTitleNames = document.createElement("a")
+      animeTitleNames.classList.add('search-result-titles')
+      animeTitleNames.setAttribute("href", link)
+      animeTitleNames.textContent = trimmedAnimeTitle
+      imageDiv.append(animeTitleNames)
 
       //Display search result images
       let animeImageResults = results[i].image_url
       let animeImage = document.createElement("img")
       animeImage.setAttribute("src", animeImageResults)
       animeImage.classList.add('image-results')
-      searchImages.append(animeImage)
+      imageDiv.append(animeImage)
 
+      
+      
+      
     }
 
 
