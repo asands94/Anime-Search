@@ -116,8 +116,8 @@ const currentAnime = async () => {
       //Display search result names
       let link = results[i].url;
       let currentAnimeTitle = `${results[i].title}`;
-      let length = 10;
-      let trimmedAnimeTitle = `${currentAnimeTitle.substring(0, length)}...`;
+      let length = 50;
+      let trimmedAnimeTitle = `${currentAnimeTitle.substring(0, length)}`;
       let currentAnimeTitleNames = document.createElement("a");
       currentAnimeTitleNames.classList.add("current-titles");
       currentAnimeTitleNames.setAttribute("href", link);
@@ -176,6 +176,10 @@ const upcomingAnime = async () => {
       upcomingAnimeDiv.append(upcomingAnimeTitleNames);
 
       //Display search result images
+      let animeButton = document.createElement('button')
+      animeButton.classList.add("anime-button")
+      animeButton.textContent = trimmedAnimeTitle;
+      upcomingAnimeDiv.append(animeButton)
       let upcomingAnimeImageResults = results[i].image_url;
       let upcomingAnimeImage = document.createElement("img");
       upcomingAnimeImage.setAttribute("src", upcomingAnimeImageResults);
@@ -227,6 +231,10 @@ const actionGenre = async () => {
       actionAnimeDiv.append(actionAnimeTitleNames);
 
       //Display search result images
+      let animeButton = document.createElement('button')
+      animeButton.classList.add("anime-button")
+      animeButton.textContent = trimmedAnimeTitle;
+      actionAnimeDiv.append(animeButton)
       let actionAnimeImageResults = results[i].image_url;
       let actionAnimeImage = document.createElement("img");
       actionAnimeImage.setAttribute("src", actionAnimeImageResults);
@@ -277,6 +285,10 @@ const fantasyGenre = async () => {
       fantasyAnimeDiv.append(fantasyAnimeTitleNames);
 
       //Display search result images
+      let animeButton = document.createElement('button')
+      animeButton.classList.add("anime-button")
+      animeButton.textContent = trimmedAnimeTitle;
+      fantasyAnimeDiv.append(animeButton)
       let fantasyAnimeImageResults = results[i].image_url;
       let fantasyAnimeImage = document.createElement("img");
       fantasyAnimeImage.setAttribute("src", fantasyAnimeImageResults);
@@ -327,6 +339,10 @@ const romanceGenre = async () => {
       romanceAnimeDiv.append(romanceAnimeTitleNames);
 
       //Display search result images
+      let animeButton = document.createElement('button')
+      animeButton.classList.add("anime-button")
+      animeButton.textContent = trimmedAnimeTitle;
+      romanceAnimeDiv.append(animeButton)
       let romanceAnimeImageResults = results[i].image_url;
       let romanceAnimeImage = document.createElement("img");
       romanceAnimeImage.setAttribute("src", romanceAnimeImageResults);

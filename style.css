@@ -83,49 +83,62 @@ footer {
 .romance-div {
   display: flex;
   flex-flow: column wrap;
-  height: 275px;
+  height: 250px;
   text-align: center;
   justify-content: space-between;
-  background-color: rgb(240, 240, 240);
+  background: #000000;
   width: 170px;
-  padding: 10px 0 0 0;
+  padding: 0;
   border-radius: 8%;
   margin: 0 7px 20px 7px;
   transition: transform .4s;
   position: relative;
 }
-/* 
-.current-titles {
+
+.current-titles, 
+.upcoming-titles, 
+.action-titles, 
+.fantasy-titles, 
+.romance-titles {
   display: none;
 }
 
 .current-div:hover .current-titles {
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background: #74040f;
   color: white;
   font-size: 12px;
-  padding: 12px 24px;
-  border: solid #74040f;
+  padding: 5px 1px 5px 1px;
   cursor: pointer;
   border-radius: 5px;
   display: block;
   
-} */
+}
 
 
 .anime-button {
   display: none;
 }
 
-.current-images:hover {
+.image-results:hover , 
+.current-images:hover ,
+.upcoming-images:hover , 
+.action-images:hover , 
+.fantasy-images:hover , 
+.romance-images:hover {
   opacity: 0.1;
 }
 
-.current-div:hover .anime-button {
+
+.image-div:hover .anime-button, 
+.current-div:hover .anime-button, 
+.upcoming-div:hover .anime-button,
+.action-div:hover .anime-button, 
+.fantasy-div:hover .anime-button, 
+.romance-div:hover .anime-button {
   position: absolute;
   top: 50%;
   left: 50%;
