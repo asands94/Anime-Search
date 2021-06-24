@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
+ 
 body {
   min-height: 100vh;
   display: flex;
@@ -20,9 +20,10 @@ header {
 }
 
 h1 {
-  margin-left: 20px;
+  margin: 0 0 7px 150px;
   font-family: 'Acme', sans-serif;
   color: #74040f;
+  font-size:larger;
 }
 
 a {
@@ -33,7 +34,7 @@ a {
 
 a:hover {
   color: #3B0208;
-  text-decoration: underline;
+  text-decoration: none; 
 }
 
 footer {
@@ -51,8 +52,10 @@ footer {
   border-radius: 3%;
 }
 .anime-genres {
-  text-align: center;
+  text-align: left;
+  margin: 0 0 0 50px;
   padding: 0;
+  font-size: large;
 }
 .image-div, 
 .current-div, 
@@ -68,7 +71,6 @@ footer {
   background-color: rgb(240, 240, 240);
   width: 170px;
   padding: 10px 0 0 0;
-  /* border: solid rgb(139, 21, 21); */
   border-radius: 8%;
   margin: 0 7px 20px 7px;
   transition: transform .4s;
@@ -94,16 +96,25 @@ footer {
 }
 
 #anime-search-form {
-  margin-right: 20px;
+  margin: 0 150px 7px 0;
 }
 
 #search-shows {
-  width: 125px;
-  border-radius: 5%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #74040f;
  }
  
  #search-button {
    width: 70px;
+   background: transparent;
+   border: none;
+   color: #74040f;
+   font-size: large;
+ }
+
+ #search-button:hover {
+   cursor: pointer;
  }
 
 #main-container {
@@ -118,8 +129,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* background-image: url("https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80"); */
-  background: #3b0208;
+  background-image: url("https://images.unsplash.com/photo-1554034483-04fda0d3507b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80");
   height: 400px;
   align-items: center;
   font-size: larger;
@@ -130,8 +140,8 @@ footer {
 #main-text {
   width: 300px;
   margin: 25px;
-  color: white;
-  background: #f4dffd98;
+  color: #ffffff;
+  background: #f8dbff49;
   text-align: center;
   padding: 5px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -182,6 +192,7 @@ footer {
   height: 50px;
   width: 50px;
   font-size: xx-large;
+  margin: 0 10px 0 0;
 }
 
 @media only screen and (max-width: 800px) {

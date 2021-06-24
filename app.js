@@ -353,11 +353,11 @@ romanceGenre()
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   
-  // document.getElementById("footer").scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+  document.getElementById("footer").scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
   removeSearchWord()
   removeSearchRImages()
   animeSearch()
-  document.getElementById("search-header").scrollIntoView(true);
+  // document.getElementById("search-header").scrollIntoView(true);
 })
 
 function removeSearchWord() {
@@ -380,5 +380,5 @@ toTop.addEventListener('click', (e) => {
 })
 
 const scrollToTop = () => {
-  window.scrollTo(0, 0)
+  window.scrollTo({top: 0, behavior: 'smooth' })
 }
