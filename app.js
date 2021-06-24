@@ -100,7 +100,14 @@ const currentAnime = async () => {
     currentHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].title)
+      console.log(results[i].synopsis)
+
+      let synopsisResults = results[i].synopsis
+      synopsis = document.createElement('p')
+      synopsis.textContent = synopsisResults
+      synopsis.id = 'display'
+      // mainBorder.append(synopsis)
+
 
       let currentAnimeDiv = document.createElement("div");
       currentImages.append(currentAnimeDiv);
@@ -118,6 +125,10 @@ const currentAnime = async () => {
       currentAnimeDiv.append(currentAnimeTitleNames);
 
       //Display search result images
+      let animeButton = document.createElement('button')
+      animeButton.classList.add("anime-button")
+      animeButton.textContent = trimmedAnimeTitle;
+      currentAnimeDiv.append(animeButton)
       let currentAnimeImageResults = results[i].image_url;
       let currentAnimeImage = document.createElement("img");
       currentAnimeImage.setAttribute("src", currentAnimeImageResults);
@@ -170,6 +181,7 @@ const upcomingAnime = async () => {
       upcomingAnimeImage.setAttribute("src", upcomingAnimeImageResults);
       upcomingAnimeImage.classList.add("upcoming-images");
       upcomingAnimeDiv.append(upcomingAnimeImage);
+
     }
   } catch (error) {
     console.error(error);
@@ -185,7 +197,7 @@ const actionGenre = async () => {
   try {
     const actionGenreURL = `https://api.jikan.moe/v3/genre/anime/1`;
     const actionGenre = await axios.get(actionGenreURL);
-    console.log(actionGenre.data.mal_url.name);
+    // console.log(actionGenre.data.mal_url.name);
     let actionGenreName = actionGenre.data.mal_url.name;
 
     let results = actionGenre.data.anime;
@@ -235,7 +247,7 @@ const fantasyGenre = async () => {
   try {
     const fantasyGenreURL = `https://api.jikan.moe/v3/genre/anime/10`;
     const fantasyGenre = await axios.get(fantasyGenreURL);
-    console.log(fantasyGenre.data.mal_url.name);
+    // console.log(fantasyGenre.data.mal_url.name);
     let fantasyGenreName = fantasyGenre.data.mal_url.name;
 
     let results = fantasyGenre.data.anime;
@@ -285,7 +297,7 @@ const romanceGenre = async () => {
   try {
     const romanceGenreURL = `https://api.jikan.moe/v3/genre/anime/22`;
     const romanceGenre = await axios.get(romanceGenreURL);
-    console.log(romanceGenre.data);
+    // console.log(romanceGenre.data);
     let romanceGenreName = romanceGenre.data.mal_url.name;
 
     let results = romanceGenre.data.anime;
@@ -362,3 +374,5 @@ toTop.addEventListener("click", (e) => {
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+

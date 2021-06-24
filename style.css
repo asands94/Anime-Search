@@ -5,13 +5,15 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(#000000, #3B0208);
+  /* background-image: linear-gradient(#000000, #000000, #000000, #000000, #3B0208); */
+  background: #000000;
   color: #cacaca;
   font-family:'PT Sans', sans-serif;
   font-size: x-large;
   /* justify-content: center; */
  align-items: center;
 }
+
 
 header {
   display: flex;
@@ -26,6 +28,14 @@ h1 {
   font-family: 'Acme', sans-serif;
   color: #74040f;
   font-size:larger;
+}
+
+h2 {
+  margin: 0;
+}
+
+h2:hover {
+  color: #74040f;
 }
 
 a {
@@ -44,6 +54,8 @@ footer {
   padding: 10px;
   text-align: center;
   font-size: medium;
+  /* background-image: linear-gradient(#000000, #3B0208); */
+  width: 100%;
 } 
 
 .header-text {
@@ -71,7 +83,7 @@ footer {
 .romance-div {
   display: flex;
   flex-flow: column wrap;
-  height: 280px;
+  height: 275px;
   text-align: center;
   justify-content: space-between;
   background-color: rgb(240, 240, 240);
@@ -80,7 +92,57 @@ footer {
   border-radius: 8%;
   margin: 0 7px 20px 7px;
   transition: transform .4s;
+  position: relative;
 }
+/* 
+.current-titles {
+  display: none;
+}
+
+.current-div:hover .current-titles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background: #74040f;
+  color: white;
+  font-size: 12px;
+  padding: 12px 24px;
+  border: solid #74040f;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  
+} */
+
+
+.anime-button {
+  display: none;
+}
+
+.current-images:hover {
+  opacity: 0.1;
+}
+
+.current-div:hover .anime-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background: #74040f;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: solid #74040f;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  opacity: 1;
+}
+
+
 
 .image-div:hover, 
 .current-div:hover, 
@@ -129,7 +191,8 @@ footer {
   background-image: linear-gradient(to right, #c2ecff, #f8dbff, #c2ecff);
   height: 500px;
   align-items: center;
-  width: 100%
+  width: 100%;
+  margin-bottom: 35px;
 }
 
 #main-border {
@@ -187,22 +250,29 @@ footer {
   flex-flow: column wrap;
   justify-content: center;
   overflow: scroll;
-  height: 330px;
+  height: 340px;
   align-items: flex-end;
   width: 90%;
-  border-top: #740407 solid;
+  border-top: 5px solid #740407 ;
 }
 
 #back-up-div {
+  display: flex;
+  justify-content: center;
   text-align: right;
 }
 
 #back-up {
   border-radius: 50%;
+  border: #74040f solid;
   height: 50px;
   width: 50px;
   font-size: xx-large;
-  margin: 0 10px 0 0;
+  margin: 0 10px 5px 0;
+}
+
+#back-up:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 800px) {
