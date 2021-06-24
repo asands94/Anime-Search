@@ -10,17 +10,14 @@ body {
   color: #cacaca;
   font-family:'PT Sans', sans-serif;
   font-size: x-large;
-  /* justify-content: center; */
  align-items: center;
 }
-
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* background-color: rgba(55, 6, 23, 0.2); */
 }
 
 h1 {
@@ -54,7 +51,6 @@ footer {
   padding: 10px;
   text-align: center;
   font-size: medium;
-  /* background-image: linear-gradient(#000000, #3B0208); */
   width: 100%;
 } 
 
@@ -71,16 +67,25 @@ footer {
   display: flex;
   flex-flow: row wrap;
   justify-content: left;
-  /* border: crimson solid; */
   width: 90%
 }
 
-.image-div, 
-.current-div, 
-.upcoming-div,
-.action-div, 
-.fantasy-div, 
-.romance-div {
+.image-title-search-div {
+  display: flex;
+  flex-flow: row wrap;
+  height: 250px;
+  text-align: center;
+  justify-content: space-between;
+  background: #000000;
+  width: 170px;
+  padding: 0;
+  border-radius: 8%;
+  margin: 0 7px 20px 7px;
+  transition: transform .4s;
+  position: relative;
+}
+
+.image-title-div {
   display: flex;
   flex-flow: column wrap;
   height: 250px;
@@ -95,55 +100,45 @@ footer {
   position: relative;
 }
 
-.current-titles, 
-.upcoming-titles, 
-.action-titles, 
-.fantasy-titles, 
-.romance-titles {
+.image-title-div:hover {
+  transform: scale(1.1)
+ }
+
+.anime-titles {
   display: none;
 }
 
-.current-div:hover .current-titles {
+.image-title-div:hover .anime-titles {
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* first number changes horizontal and second changes vertical direction */
   color: white;
-  font-size: 12px;
-  padding: 5px 1px 5px 1px;
-  cursor: pointer;
+  font-size: 13px;
   border-radius: 5px;
   display: block;
-  
 }
 
+.image-title-div:hover .search-result-titles {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* first number changes horizontal and second changes vertical direction */
+  color: white;
+  font-size: 13px;
+  border-radius: 5px;
+  display: block;
+}
 
 .anime-button {
   display: none;
 }
 
-.image-results:hover , 
-.current-images:hover ,
-.upcoming-images:hover , 
-.action-images:hover , 
-.fantasy-images:hover , 
-.romance-images:hover {
-  opacity: 0.1;
-}
-
-
-.image-div:hover .anime-button, 
-.current-div:hover .anime-button, 
-.upcoming-div:hover .anime-button,
-.action-div:hover .anime-button, 
-.fantasy-div:hover .anime-button, 
-.romance-div:hover .anime-button {
+.image-title-div:hover .anime-button {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   background: #74040f;
   color: white;
   font-size: 16px;
@@ -155,25 +150,13 @@ footer {
   opacity: 1;
 }
 
-
-
-.image-div:hover, 
-.current-div:hover, 
-.upcoming-div:hover,
-.action-div:hover, 
-.fantasy-div:hover, 
-.romance-div:hover {
-  transform: scale(1.1)
- }
-
-.image-results, 
-.current-images,
-.upcoming-images, 
-.action-images, 
-.fantasy-images, 
-.romance-images {
+.anime-images {
   height: 250px;
   width: 170px;
+}
+
+.anime-images:hover {
+  opacity: 0.1;
 }
 
 #anime-search-form {
@@ -235,7 +218,7 @@ footer {
   margin: 25px;
 }
 
-#image-container, 
+#image-container,
 #currently-airing,
 #upcoming-genre, 
 #action-genre, 
@@ -247,12 +230,20 @@ footer {
   align-items: center;
   width: 100%;
 }
+
+#search-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 #search-images {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   justify-content: center;
+  align-items: flex-end;
   width: 90%;
-} 
+}
+
 
 #current-images,
 #upcoming-images,
