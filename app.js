@@ -357,7 +357,7 @@ form.addEventListener('submit', (e) => {
   removeSearchWord()
   removeSearchRImages()
   animeSearch()
-  // document.getElementById("search-header").scrollIntoView(true);
+  document.getElementById("search-header").scrollIntoView(true);
 })
 
 function removeSearchWord() {
