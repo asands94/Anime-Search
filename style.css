@@ -5,11 +5,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* background-image: linear-gradient(#000000, #93b4c3); */
-  background: black;
-  color: #AF4652;
+  background-image: linear-gradient(#000000, #000000, #3B0208);
+  /* background: black; */
+  color: #cacaca;
   font-family:'PT Sans', sans-serif;
-  font-size: large;
+  font-size: x-large;
 }
 
 header {
@@ -22,16 +22,17 @@ header {
 h1 {
   margin-left: 20px;
   font-family: 'Acme', sans-serif;
+  color: #74040f;
 }
 
 a {
   text-decoration: none;
-  color: #AF4652;
+  color: #74040f;
   font-size: medium;
 }
 
 a:hover {
-  color: #E85D04;
+  color: #3B0208;
   text-decoration: underline;
 }
 
@@ -39,7 +40,7 @@ footer {
   margin-top: auto;
   padding: 10px;
   text-align: center;
-  /* background-color: #03071E; */
+  font-size: medium;
 } 
 
 .header-text {
@@ -90,7 +91,6 @@ footer {
 .romance-images {
   height: 250px;
   width: 170px;
-  /* background-color: darkorange; */
 }
 
 #anime-search-form {
@@ -98,10 +98,11 @@ footer {
 }
 
 #search-shows {
-  width: 100px;
+  width: 125px;
+  border-radius: 5%;
  }
  
- #seaerch-button {
+ #search-button {
    width: 70px;
  }
 
@@ -117,7 +118,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: url("https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80");
+  /* background-image: url("https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80"); */
+  background: #3b0208;
   height: 400px;
   align-items: center;
   font-size: larger;
@@ -147,7 +149,6 @@ footer {
 #fantasy-genre, 
 #romance-genre {
   display: flex;
-  /* background-color: plum; */
   justify-content: center;
   align-items: center;
 }
@@ -167,12 +168,9 @@ footer {
   flex-wrap: nowrap;
   justify-content: center;
   overflow: scroll;
-  /* background-color: gray; */
-  /* border: solid lawngreen; */
   height: 330px;
   align-items: flex-end;
   width: 90%;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #back-up-div {
