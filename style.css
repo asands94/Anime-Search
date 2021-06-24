@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(#dfe7fd, #dfe7fd, #799AF6);
+  /* background-image: linear-gradient(#000000, #93b4c3); */
+  background: black;
   color: #AF4652;
-  font-family: 'Roboto', sans-serif;
+  font-family:'PT Sans', sans-serif;
+  font-size: large;
 }
 
 header {
@@ -18,12 +21,13 @@ header {
 
 h1 {
   margin-left: 20px;
-  color: #E85D04;
+  font-family: 'Acme', sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: #000000;
+  color: #AF4652;
+  font-size: medium;
 }
 
 a:hover {
@@ -104,8 +108,7 @@ footer {
 #main-container {
   display: flex;
   justify-content: center;
-  background: 799AF6;
-  background-image: url("https://images.unsplash.com/photo-1548504769-900b70ed122e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3400&q=80");
+  background-image: linear-gradient(to right, #c2ecff, #f8dbff, #c2ecff);
   height: 500px;
   align-items: center;
 }
@@ -114,16 +117,23 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: url("https://images.unsplash.com/photo-1594165681163-1b85559cf250?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80");
+  background-image: url("https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80");
   height: 400px;
   align-items: center;
   font-size: larger;
   font-weight: bolder;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #main-text {
   width: 300px;
-  margin: 25px
+  margin: 25px;
+  color: white;
+  background: #f4dffd98;
+  text-align: center;
+  padding: 5px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: large;
 }
 
 #main-image {
