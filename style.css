@@ -5,19 +5,19 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(#000000, #000000, #000000, #000000, #3B0208);
+  background-image: linear-gradient(#000000, #3B0208);
   color: #cacaca;
   font-family:'PT Sans', sans-serif;
   font-size: x-large;
-  /* justify-content: center;
-  align-items: center; */
-
+  /* justify-content: center; */
+ align-items: center;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   /* background-color: rgba(55, 6, 23, 0.2); */
 }
 
@@ -59,7 +59,7 @@ footer {
   display: flex;
   flex-flow: row wrap;
   justify-content: left;
-  border: crimson solid;
+  /* border: crimson solid; */
   width: 90%
 }
 
@@ -129,6 +129,7 @@ footer {
   background-image: linear-gradient(to right, #c2ecff, #f8dbff, #c2ecff);
   height: 500px;
   align-items: center;
+  width: 100%
 }
 
 #main-border {
@@ -165,12 +166,14 @@ footer {
 #fantasy-genre, 
 #romance-genre {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 #search-images {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   justify-content: center;
   width: 90%;
 } 
@@ -181,7 +184,7 @@ footer {
 #fantasy-images, 
 #romance-images {
   display: flex;
-  flex-wrap: nowrap;
+  flex-flow: column wrap;
   justify-content: center;
   overflow: scroll;
   height: 330px;
