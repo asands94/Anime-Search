@@ -11,7 +11,7 @@ const animeSearch = async () => {
   try {
     let animeShowName = document.getElementById("search-shows").value;
     document.getElementById("search-shows").value = "";
-    const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=27`;
+    const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=24`;
     const animeSearchResults = await axios.get(animeSearchURL);
     // console.log(animeSearchResults.data.results)
     const results = animeSearchResults.data.results;
@@ -126,6 +126,12 @@ const currentAnime = async () => {
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       currentAnimeDiv.append(animeButton);
+
+      let resetButton = document.createElement("button");
+      resetButton.classList.add("reset-button");
+      resetButton.textContent = "Hide";
+      currentAnimeDiv.append(resetButton);
+
       let currentAnimeImageResults = results[i].image_url;
       let currentAnimeImage = document.createElement("img");
       currentAnimeImage.setAttribute("src", currentAnimeImageResults);
@@ -139,10 +145,24 @@ const currentAnime = async () => {
       synopsis.classList.add('modal')
       // currentAnimeDiv.append(synopsis)
 
-      // animeButton.addEventListener('click', () => {
-      //   // e.preventDefault()
-      //   currentAnimeImage.style.display = 'none'
-      // })
+      animeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        currentAnimeImage.style.display = 'none'
+        currentAnimeTitleNames.style.display = 'block'
+        // animeButton.style.display = "block"
+        resetButton.style.display = 'block'
+        
+      })
+
+      resetButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        currentAnimeTitleNames.style.display = 'none'
+        currentAnimeImage.style.display = 'block'
+        // animeButton.style.display = 'block'
+        // animeButton.hidden = true
+        resetButton.style.display = 'none'
+        // setTimeout(animeButton, 250);
+      })
 
 
     }
@@ -152,6 +172,8 @@ const currentAnime = async () => {
 };
 
 currentAnime();
+
+
 
 const upcomingHeader = document.getElementById("upcoming-header");
 const upcomingImages = document.getElementById("upcoming-images");
@@ -366,37 +388,41 @@ const romanceGenre = async () => {
 
 romanceGenre();
 
+
+// Event Listeners
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  document
-    .getElementById("footer")
-    .scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
   removeSearchWord();
   removeSearchRImages();
   animeSearch();
-  // document.getElementById("search-header").scrollIntoView(true);
+  setTimeout(scrollToSearch, 250);
 });
 
-function removeSearchWord() {
-  while (searchHeader.lastChild) {
-    searchHeader.removeChild(searchHeader.lastChild);
-  }
-}
-
-function removeSearchRImages() {
-  while (searchImages.lastChild) {
-    searchImages.removeChild(searchImages.lastChild);
-  }
-}
-
 const toTop = document.getElementById("back-up");
-
 toTop.addEventListener("click", (e) => {
   e.preventDefault();
   scrollToTop();
 });
 
+//Functions
+const removeSearchWord = () => {
+  while (searchHeader.lastChild) {
+    searchHeader.removeChild(searchHeader.lastChild);
+  }
+}
+
+const removeSearchRImages = () => {
+  while (searchImages.lastChild) {
+    searchImages.removeChild(searchImages.lastChild);
+  }
+}
+
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+const scrollToSearch = () => {
+  scrollDown = document.getElementById("footer")
+  scrollDown.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
+}

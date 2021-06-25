@@ -90,24 +90,34 @@ footer {
 
 .anime-titles {
   display: none;
-}
-
-.image-title-div:hover .anime-titles {
   position: absolute;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%); /* first number changes horizontal and second changes vertical direction */
   color: white;
-  font-size: 15px;
+  font-size: 12px;
   padding: 0;
-  display: block;
   width: 90%;
   align-items: flex-start;
 }
 
-.anime-button {
+
+.anime-button, 
+.reset-button {
   display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #74040f;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: solid #74040f;
+  cursor: pointer;
+  border-radius: 5px;
 }
+
 
 .image-title-div:hover .anime-button {
   position: absolute;
@@ -124,16 +134,11 @@ footer {
   display: block;
 }
 
+
 .anime-images, 
 .anime-search-images {
   height: 250px;
   width: 170px;
-}
-
-
-.anime-images:hover,
-.anime-search-images:hover {
-  opacity: 0.1;
 }
 
 #anime-search-form {
@@ -163,7 +168,7 @@ footer {
   display: flex;
   justify-content: center;
   background-image: linear-gradient(to right, #c2ecff, #f8dbff, #c2ecff);
-  height: 500px;
+  height: 600px;
   align-items: center;
   width: 100%;
   margin-bottom: 35px;
