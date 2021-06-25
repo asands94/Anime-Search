@@ -48,17 +48,17 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 - ~~Render image and title, based on the search results~~
 - ~~Have dynamic header image that showcases most popular anime at the time (may not change often)~~ (the API does not have a synopsis of popular anime, so this will be a static image instead in order to include synopsis pulled from the API)
 - ~~Styling with flexbox~~
-- ~~Media query for mobile~~
+- Media query for mobile
 
 
 #### PostMVP  
 
-- Display list of popular anime on the page that are clickable and bring user to information page (popup)
+- ~~Display list of popular anime on the page that are clickable and bring user to information page (popup)~~
 - ~~Display upcoming anime that has been announced~~
 - ~~Display different genres~~
 - Create image carousel in header that displays popular anime characters as well as most popular anime show at the moment
 - Let user add anime to a "watch later" list
-- Add description to anime that the user searches for on a popup page
+- ~~Add description to anime that the user searches for on a popup page~~
 - ~~Show currently airing anime~~
 
 ## Project Schedule
@@ -87,14 +87,14 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | Add hover effects for the images | L | 3hrs| 1hr | 1hr |
 | Go through all data I want to display for the anime | H | 2hrs| |  |
 | query for mobile | H | 3hrs| 2hr |  |
-| Format general website (background, footer) | H | 3hrs| 11hrs |  |
+| Format general website (background, footer) | H | 3hrs| 14hrs |  |
 | Testing out information taken from API (image sizes, kinds of information, search functionality) | H | 3hrs|  |  |
 | Add image carousel | L | 5hrs|  |  |
 | Add links at top of page that go to different sections | L | 1hrs| 0.5hrs |  |
 | add go back up top of the page button | L | 2hrs| 0.5hrs |  |
 | create watch later list | L | 4hrs|  |  |
 | add different genres to page | L | 1hr| 0.5hrs | 0.5hrs |
-| Total |  | 38hrs| 25hrs |  |
+| Total |  | 38hrs| 28hrs |  |
 
 ## Code Snippet
 
