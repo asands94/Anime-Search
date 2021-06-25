@@ -2,6 +2,7 @@ const searchHeader = document.getElementById("search-header");
 const searchTitles = document.getElementById("search-titles");
 const searchImages = document.getElementById("search-images");
 
+const mainHeader = document.getElementById("main-container")
 const form = document.getElementById("anime-search-form");
 const bgImage = document.getElementById("main-image");
 const bgImageTitle = document.getElementById("main-text");
@@ -20,50 +21,70 @@ const animeSearch = async () => {
     searchHeader.classList.add("anime-search");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].image_url)
-      // console.log(results[i].url)
+      console.log(results[i].image_url)
+      console.log(results[i].url)
 
+      // Create a div to append all the data to
       let imageDiv = document.createElement("div");
       searchImages.append(imageDiv);
       imageDiv.classList.add("image-title-div");
 
-      //Display search result names
-      let animeTitle = `${results[i].title}`;
-      let animeTitleNames = document.createElement("p");
-      animeTitleNames.classList.add("anime-titles");
-      animeTitleNames.textContent = animeTitle
-      imageDiv.append(animeTitleNames);
-
-      //Display search result images
+      // Create buttons to go ontop of images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       imageDiv.append(animeButton);
 
-      let resetButton = document.createElement("button");
-      resetButton.classList.add("reset-button");
-      resetButton.textContent = "Hide";
-      imageDiv.append(resetButton);
-
+      // Display images
       let animeImageResults = results[i].image_url;
       let animeImage = document.createElement("img");
       animeImage.setAttribute("src", animeImageResults);
       animeImage.classList.add("anime-search-images");
       imageDiv.append(animeImage);
 
+      // Create modal
+      const modalContent = document.createElement("div")
+      modalContent.classList.add('modal-content')
+      mainHeader.append(modalContent)
+
+      const modalBox = document.createElement("div")
+      modalBox.classList.add('modal-box')
+      modalContent.append(modalBox)
+
+      const closeBtn = document.createElement("span")
+      closeBtn.classList.add('close')
+      closeBtn.textContent = 'x'
+      modalBox.append(closeBtn)
+
+      // Display titles in modal
+      let animeTitle = results[i].title;
+      let animeTitleNames = document.createElement("h2");
+      animeTitleNames.textContent = animeTitle;
+      modalBox.append(animeTitleNames);
+
+      // Display synopsis in modal
+      let synopsisResults = results[i].synopsis;
+      let synopsis = document.createElement("p");
+      synopsis.textContent = synopsisResults;
+      modalBox.append(synopsis)
+
+      // Display images in modal
+      let animeImageResults2 = results[i].image_url;
+      let animeImage2 = document.createElement("img");
+      animeImage2.setAttribute("src", animeImageResults2);
+      modalBox.append(animeImage2);
+      
+      
+      // Event listeners
       animeButton.addEventListener('click', (e) => {
         e.preventDefault()
-        animeImage.style.display = 'none'
-        animeTitleNames.style.display = 'block'
-        resetButton.style.display = 'block'
+        modalContent.style.display = "block"
+
+        closeBtn.addEventListener('click', () => {
+          modalContent.style.display = 'none'
+        })
       })
 
-      resetButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        animeImage.style.display = 'block'
-        animeTitleNames.style.display = 'none'
-        resetButton.style.display = 'none'
-      })
     }
   } catch (error) {
     console.error(error);
@@ -120,57 +141,67 @@ const currentAnime = async () => {
     currentHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].synopsis);
+      console.log(results[i].title);
 
+      // Create a div to append all the data to
       let currentAnimeDiv = document.createElement("div");
       currentImages.append(currentAnimeDiv);
       currentAnimeDiv.classList.add("image-title-div");
 
-      //Display names
-      let currentAnimeTitle = `${results[i].title}`;
-      let currentAnimeTitleNames = document.createElement("p");
-      currentAnimeTitleNames.classList.add("anime-titles");
-      currentAnimeTitleNames.textContent = currentAnimeTitle;
-      currentAnimeDiv.append(currentAnimeTitleNames);
-
-      //Display images
+      // Create buttons to go ontop of images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       currentAnimeDiv.append(animeButton);
 
-      let resetButton = document.createElement("button");
-      resetButton.classList.add("reset-button");
-      resetButton.textContent = "Hide";
-      currentAnimeDiv.append(resetButton);
-
+      // Display images
       let currentAnimeImageResults = results[i].image_url;
       let currentAnimeImage = document.createElement("img");
       currentAnimeImage.setAttribute("src", currentAnimeImageResults);
       currentAnimeImage.classList.add("anime-images");
       currentAnimeDiv.append(currentAnimeImage);
 
-      // Display synopsis
-      let synopsisResults = results[i].synopsis;
-      synopsis = document.createElement("p");
-      synopsis.textContent = synopsisResults;
-      synopsis.classList.add('modal')
-      // currentAnimeDiv.append(synopsis)
+      // Create modal
+      const modalContent = document.createElement("div")
+      modalContent.classList.add('modal-content')
+      mainHeader.append(modalContent)
 
+      const modalBox = document.createElement("div")
+      modalBox.classList.add('modal-box')
+      modalContent.append(modalBox)
+
+      const closeBtn = document.createElement("span")
+      closeBtn.classList.add('close')
+      closeBtn.textContent = 'x'
+      modalBox.append(closeBtn)
+
+      // Display titles in modal
+      let currentAnimeTitle = results[i].title;
+      let currentAnimeTitleNames = document.createElement("h2");
+      currentAnimeTitleNames.textContent = currentAnimeTitle;
+      modalBox.append(currentAnimeTitleNames);
+
+      // Display synopsis in modal
+      let synopsisResults = results[i].synopsis;
+      let synopsis = document.createElement("p");
+      synopsis.textContent = synopsisResults;
+      modalBox.append(synopsis)
+
+      // Display images in modal
+      let currentAnimeImageResults2 = results[i].image_url;
+      let currentAnimeImage2 = document.createElement("img");
+      currentAnimeImage2.setAttribute("src", currentAnimeImageResults2);
+      modalBox.append(currentAnimeImage2);
+      
+      // Event listeners
       animeButton.addEventListener('click', (e) => {
         e.preventDefault()
-        currentAnimeImage.style.display = 'none'
-        currentAnimeTitleNames.style.display = 'block'
-        resetButton.style.display = 'block'
-      })
+        modalContent.style.display = "block"
 
-      resetButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        currentAnimeImage.style.display = 'block'
-        currentAnimeTitleNames.style.display = 'none'
-        resetButton.style.display = 'none'
+        closeBtn.addEventListener('click', () => {
+          modalContent.style.display = 'none'
+        })
       })
-
 
     }
   } catch (error) {
@@ -179,8 +210,6 @@ const currentAnime = async () => {
 };
 
 currentAnime();
-
-
 
 const upcomingHeader = document.getElementById("upcoming-header");
 const upcomingImages = document.getElementById("upcoming-images");
@@ -200,47 +229,66 @@ const upcomingAnime = async () => {
     for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
+      // Create a div to append all the data to
       let upcomingAnimeDiv = document.createElement("div");
       upcomingImages.append(upcomingAnimeDiv);
       upcomingAnimeDiv.classList.add("image-title-div");
 
-      //Display names
-      let upcomingAnimeTitle = `${results[i].title}`;
-      let upcomingAnimeTitleNames = document.createElement("p");
-      upcomingAnimeTitleNames.classList.add("anime-titles");
-      upcomingAnimeTitleNames.textContent = upcomingAnimeTitle;
-      upcomingAnimeDiv.append(upcomingAnimeTitleNames);
-
-      //Display images
+      // Create button to go ontop of images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       upcomingAnimeDiv.append(animeButton);
 
-      let resetButton = document.createElement("button");
-      resetButton.classList.add("reset-button");
-      resetButton.textContent = "Hide";
-      upcomingAnimeDiv.append(resetButton);
-
+      // Display images
       let upcomingAnimeImageResults = results[i].image_url;
       let upcomingAnimeImage = document.createElement("img");
       upcomingAnimeImage.setAttribute("src", upcomingAnimeImageResults);
       upcomingAnimeImage.classList.add("anime-images");
       upcomingAnimeDiv.append(upcomingAnimeImage);
 
-      animeButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        upcomingAnimeImage.style.display = 'none'
-        upcomingAnimeTitleNames.style.display = 'block'
-        resetButton.style.display = 'block'
-      })
+      // Create modal
+      const modalContent = document.createElement("div")
+      modalContent.classList.add('modal-content')
+      mainHeader.append(modalContent)
 
-      resetButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        upcomingAnimeImage.style.display = 'block'
-        upcomingAnimeTitleNames.style.display = 'none'
-        resetButton.style.display = 'none'
+      const modalBox = document.createElement("div")
+      modalBox.classList.add('modal-box')
+      modalContent.append(modalBox)
+
+      const closeBtn = document.createElement("span")
+      closeBtn.classList.add('close')
+      closeBtn.textContent = 'x'
+      modalBox.append(closeBtn)
+
+      // Display titles in modal
+      let upcomingAnimeTitle = `${results[i].title}`;
+      let upcomingAnimeTitleNames = document.createElement("h2");
+      upcomingAnimeTitleNames.textContent = upcomingAnimeTitle;
+      modalBox.append(upcomingAnimeTitleNames);
+
+      // Display synopsis in modal
+      let synopsisResults = results[i].synopsis;
+      let synopsis = document.createElement("p");
+      synopsis.textContent = synopsisResults;
+      modalBox.append(synopsis)
+
+      // Display images in modal
+      let upcomingAnimeImageResults2 = results[i].image_url;
+      let upcomingAnimeImage2 = document.createElement("img");
+      upcomingAnimeImage2.setAttribute("src", upcomingAnimeImageResults2);
+      modalBox.append(upcomingAnimeImage2);
+
+     // Event listeners
+     animeButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      modalContent.style.display = "block"
+
+      closeBtn.addEventListener('click', () => {
+        modalContent.style.display = 'none'
       })
+    })
+
     }
   } catch (error) {
     console.error(error);
@@ -270,47 +318,66 @@ const actionGenre = async () => {
     for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
-      let actionAnimeDiv = document.createElement("div");
-      actionImages.append(actionAnimeDiv);
-      actionAnimeDiv.classList.add("image-title-div");
-
-      //Display search result names
-      let actionAnimeTitle = `${results[i].title}`
-      let actionAnimeTitleNames = document.createElement("p");
-      actionAnimeTitleNames.classList.add("anime-titles");
-      actionAnimeTitleNames.textContent = actionAnimeTitle;
-      actionAnimeDiv.append(actionAnimeTitleNames);
-
-      //Display search result images
-      let animeButton = document.createElement("button");
-      animeButton.classList.add("anime-button");
-      animeButton.textContent = "Details";
-      actionAnimeDiv.append(animeButton);
-
-      let resetButton = document.createElement("button");
-      resetButton.classList.add("reset-button");
-      resetButton.textContent = "Hide";
-      actionAnimeDiv.append(resetButton);
-
-      let actionAnimeImageResults = results[i].image_url;
-      let actionAnimeImage = document.createElement("img");
-      actionAnimeImage.setAttribute("src", actionAnimeImageResults);
-      actionAnimeImage.classList.add("anime-images");
-      actionAnimeDiv.append(actionAnimeImage);
-
+       // Create a div to append all the data to
+       let actionAnimeDiv = document.createElement("div");
+       actionImages.append(actionAnimeDiv);
+       actionAnimeDiv.classList.add("image-title-div");
+ 
+       // Create button to go ontop of images
+       let animeButton = document.createElement("button");
+       animeButton.classList.add("anime-button");
+       animeButton.textContent = "Details";
+       actionAnimeDiv.append(animeButton);
+ 
+       // Display images
+       let actionAnimeImageResults = results[i].image_url;
+       let actionAnimeImage = document.createElement("img");
+       actionAnimeImage.setAttribute("src", actionAnimeImageResults);
+       actionAnimeImage.classList.add("anime-images");
+       actionAnimeDiv.append(actionAnimeImage);
+ 
+       // Create modal
+       const modalContent = document.createElement("div")
+       modalContent.classList.add('modal-content')
+       mainHeader.append(modalContent)
+ 
+       const modalBox = document.createElement("div")
+       modalBox.classList.add('modal-box')
+       modalContent.append(modalBox)
+ 
+       const closeBtn = document.createElement("span")
+       closeBtn.classList.add('close')
+       closeBtn.textContent = 'x'
+       modalBox.append(closeBtn)
+ 
+       // Display titles in modal
+       let actionAnimeTitle = `${results[i].title}`;
+       let actionAnimeTitleNames = document.createElement("h2");
+       actionAnimeTitleNames.textContent = actionAnimeTitle;
+       modalBox.append(actionAnimeTitleNames);
+ 
+       // Display synopsis in modal
+       let synopsisResults = results[i].synopsis;
+       let synopsis = document.createElement("p");
+       synopsis.textContent = synopsisResults;
+       modalBox.append(synopsis)
+ 
+       // Display images in modal
+       let actionAnimeImageResults2 = results[i].image_url;
+       let actionAnimeImage2 = document.createElement("img");
+       actionAnimeImage2.setAttribute("src", actionAnimeImageResults2);
+       modalBox.append(actionAnimeImage2);
+ 
+      // Event listeners
       animeButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        actionAnimeImage.style.display = 'none'
-        actionAnimeTitleNames.style.display = 'block'
-        resetButton.style.display = 'block'
+       e.preventDefault()
+       modalContent.style.display = "block"
+ 
+       closeBtn.addEventListener('click', () => {
+         modalContent.style.display = 'none'
+       })
       })
-
-      resetButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        actionAnimeImage.style.display = 'block'
-        actionAnimeTitleNames.style.display = 'none'
-        resetButton.style.display = 'none'
-      })
+      
     }
   } catch (error) {
     console.error(error);
@@ -340,48 +407,66 @@ const fantasyGenre = async () => {
     for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
+      // Create a div to append all the data to
       let fantasyAnimeDiv = document.createElement("div");
       fantasyImages.append(fantasyAnimeDiv);
       fantasyAnimeDiv.classList.add("image-title-div");
 
-      //Display names
-      let link = results[i].url;
-      let fantasyAnimeTitle = `${results[i].title}`;
-      let fantasyAnimeTitleNames = document.createElement("p");
-      fantasyAnimeTitleNames.classList.add("anime-titles");
-      fantasyAnimeTitleNames.textContent = fantasyAnimeTitle;
-      fantasyAnimeDiv.append(fantasyAnimeTitleNames);
-
-      //Display images
+      // Create button to go ontop of images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       fantasyAnimeDiv.append(animeButton);
 
-      let resetButton = document.createElement("button");
-      resetButton.classList.add("reset-button");
-      resetButton.textContent = "Hide";
-      fantasyAnimeDiv.append(resetButton);
-
+      // Display images
       let fantasyAnimeImageResults = results[i].image_url;
       let fantasyAnimeImage = document.createElement("img");
       fantasyAnimeImage.setAttribute("src", fantasyAnimeImageResults);
       fantasyAnimeImage.classList.add("anime-images");
       fantasyAnimeDiv.append(fantasyAnimeImage);
 
-      animeButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        fantasyAnimeImage.style.display = 'none'
-        fantasyAnimeTitleNames.style.display = 'block'
-        resetButton.style.display = 'block'
-      })
+      // Create modal
+      const modalContent = document.createElement("div")
+      modalContent.classList.add('modal-content')
+      mainHeader.append(modalContent)
 
-      resetButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        fantasyAnimeImage.style.display = 'block'
-        fantasyAnimeTitleNames.style.display = 'none'
-        resetButton.style.display = 'none'
+      const modalBox = document.createElement("div")
+      modalBox.classList.add('modal-box')
+      modalContent.append(modalBox)
+
+      const closeBtn = document.createElement("span")
+      closeBtn.classList.add('close')
+      closeBtn.textContent = 'x'
+      modalBox.append(closeBtn)
+
+      // Display titles in modal
+      let fantasyAnimeTitle = `${results[i].title}`;
+      let fantasyAnimeTitleNames = document.createElement("h2");
+      fantasyAnimeTitleNames.textContent = fantasyAnimeTitle;
+      modalBox.append(fantasyAnimeTitleNames);
+
+      // Display synopsis in modal
+      let synopsisResults = results[i].synopsis;
+      let synopsis = document.createElement("p");
+      synopsis.textContent = synopsisResults;
+      modalBox.append(synopsis)
+
+      // Display images in modal
+      let fantasyAnimeImageResults2 = results[i].image_url;
+      let fantasyAnimeImage2 = document.createElement("img");
+      fantasyAnimeImage2.setAttribute("src", fantasyAnimeImageResults2);
+      modalBox.append(fantasyAnimeImage2);
+
+     // Event listeners
+     animeButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      modalContent.style.display = "block"
+
+      closeBtn.addEventListener('click', () => {
+        modalContent.style.display = 'none'
       })
+     })
+     
     }
   } catch (error) {
     console.error(error);
@@ -411,48 +496,66 @@ const romanceGenre = async () => {
     for (let i = 0; i < results.length; i++) {
       // console.log(results[i].title)
 
+      // Create a div to append all the data to
       let romanceAnimeDiv = document.createElement("div");
       romanceImages.append(romanceAnimeDiv);
       romanceAnimeDiv.classList.add("image-title-div");
 
-      //Display names
-      let link = results[i].url;
-      let romanceAnimeTitle = `${results[i].title}`;
-      let romanceAnimeTitleNames = document.createElement("p");
-      romanceAnimeTitleNames.classList.add("anime-titles");
-      romanceAnimeTitleNames.textContent = romanceAnimeTitle;
-      romanceAnimeDiv.append(romanceAnimeTitleNames);
-
-      //Display images
+      // Create button to go ontop of images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       romanceAnimeDiv.append(animeButton);
 
-      let resetButton = document.createElement("button");
-      resetButton.classList.add("reset-button");
-      resetButton.textContent = "Hide";
-      romanceAnimeDiv.append(resetButton);
-
+      // Display images
       let romanceAnimeImageResults = results[i].image_url;
       let romanceAnimeImage = document.createElement("img");
       romanceAnimeImage.setAttribute("src", romanceAnimeImageResults);
       romanceAnimeImage.classList.add("anime-images");
       romanceAnimeDiv.append(romanceAnimeImage);
 
-      animeButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        romanceAnimeImage.style.display = 'none'
-        romanceAnimeTitleNames.style.display = 'block'
-        resetButton.style.display = 'block'
-      })
+      // Create modal
+      const modalContent = document.createElement("div")
+      modalContent.classList.add('modal-content')
+      mainHeader.append(modalContent)
 
-      resetButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        romanceAnimeImage.style.display = 'block'
-        romanceAnimeTitleNames.style.display = 'none'
-        resetButton.style.display = 'none'
+      const modalBox = document.createElement("div")
+      modalBox.classList.add('modal-box')
+      modalContent.append(modalBox)
+
+      const closeBtn = document.createElement("span")
+      closeBtn.classList.add('close')
+      closeBtn.textContent = 'x'
+      modalBox.append(closeBtn)
+
+      // Display titles in modal
+      let romanceAnimeTitle = `${results[i].title}`;
+      let romanceAnimeTitleNames = document.createElement("h2");
+      romanceAnimeTitleNames.textContent = romanceAnimeTitle;
+      modalBox.append(romanceAnimeTitleNames);
+
+      // Display synopsis in modal
+      let synopsisResults = results[i].synopsis;
+      let synopsis = document.createElement("p");
+      synopsis.textContent = synopsisResults;
+      modalBox.append(synopsis)
+
+      // Display images in modal
+      let romanceAnimeImageResults2 = results[i].image_url;
+      let romanceAnimeImage2 = document.createElement("img");
+      romanceAnimeImage2.setAttribute("src", romanceAnimeImageResults2);
+      modalBox.append(romanceAnimeImage2);
+
+     // Event listeners
+     animeButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      modalContent.style.display = "block"
+
+      closeBtn.addEventListener('click', () => {
+        modalContent.style.display = 'none'
       })
+     })
+      
     }
   } catch (error) {
     console.error(error);
