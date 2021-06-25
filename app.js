@@ -25,7 +25,7 @@ const animeSearch = async () => {
 
       let imageDiv = document.createElement("div");
       searchImages.append(imageDiv);
-      imageDiv.classList.add(".image-title-search-div");
+      imageDiv.classList.add("image-title-div");
 
       //Display search result names
       let link = results[i].url;
@@ -33,7 +33,7 @@ const animeSearch = async () => {
       let length = 10;
       let trimmedAnimeTitle = `${animeTitle.substring(0, length)}...`;
       let animeTitleNames = document.createElement("a");
-      animeTitleNames.classList.add("search-result-titles");
+      animeTitleNames.classList.add("anime-titles");
       animeTitleNames.setAttribute("href", link);
       animeTitleNames.textContent = trimmedAnimeTitle;
       imageDiv.append(animeTitleNames);
@@ -46,7 +46,7 @@ const animeSearch = async () => {
       let animeImageResults = results[i].image_url;
       let animeImage = document.createElement("img");
       animeImage.setAttribute("src", animeImageResults);
-      animeImage.classList.add("anime-images");
+      animeImage.classList.add("anime-search-images");
       imageDiv.append(animeImage);
     }
   } catch (error) {
