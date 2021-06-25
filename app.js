@@ -28,14 +28,10 @@ const animeSearch = async () => {
       imageDiv.classList.add("image-title-div");
 
       //Display search result names
-      let link = results[i].url;
       let animeTitle = `${results[i].title}`;
-      let length = 10;
-      let trimmedAnimeTitle = `${animeTitle.substring(0, length)}...`;
-      let animeTitleNames = document.createElement("a");
+      let animeTitleNames = document.createElement("p");
       animeTitleNames.classList.add("anime-titles");
-      animeTitleNames.setAttribute("href", link);
-      animeTitleNames.textContent = trimmedAnimeTitle;
+      animeTitleNames.textContent = animeTitle
       imageDiv.append(animeTitleNames);
 
       //Display search result images
@@ -43,11 +39,31 @@ const animeSearch = async () => {
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       imageDiv.append(animeButton);
+
+      let resetButton = document.createElement("button");
+      resetButton.classList.add("reset-button");
+      resetButton.textContent = "Hide";
+      imageDiv.append(resetButton);
+
       let animeImageResults = results[i].image_url;
       let animeImage = document.createElement("img");
       animeImage.setAttribute("src", animeImageResults);
       animeImage.classList.add("anime-search-images");
       imageDiv.append(animeImage);
+
+      animeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        animeImage.style.display = 'none'
+        animeTitleNames.style.display = 'block'
+        resetButton.style.display = 'block'
+      })
+
+      resetButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        animeImage.style.display = 'block'
+        animeTitleNames.style.display = 'none'
+        resetButton.style.display = 'none'
+      })
     }
   } catch (error) {
     console.error(error);
@@ -111,13 +127,9 @@ const currentAnime = async () => {
       currentAnimeDiv.classList.add("image-title-div");
 
       //Display names
-      let link = results[i].url;
       let currentAnimeTitle = `${results[i].title}`;
-      // let length = 50;
-      // let trimmedAnimeTitle = `${currentAnimeTitle.substring(0, length)}`;
       let currentAnimeTitleNames = document.createElement("p");
       currentAnimeTitleNames.classList.add("anime-titles");
-      // currentAnimeTitleNames.setAttribute("href", link);
       currentAnimeTitleNames.textContent = currentAnimeTitle;
       currentAnimeDiv.append(currentAnimeTitleNames);
 
@@ -149,19 +161,14 @@ const currentAnime = async () => {
         e.preventDefault()
         currentAnimeImage.style.display = 'none'
         currentAnimeTitleNames.style.display = 'block'
-        // animeButton.style.display = "block"
         resetButton.style.display = 'block'
-        
       })
 
       resetButton.addEventListener('click', (e) => {
         e.preventDefault()
-        currentAnimeTitleNames.style.display = 'none'
         currentAnimeImage.style.display = 'block'
-        // animeButton.style.display = 'block'
-        // animeButton.hidden = true
+        currentAnimeTitleNames.style.display = 'none'
         resetButton.style.display = 'none'
-        // setTimeout(animeButton, 250);
       })
 
 
@@ -197,27 +204,43 @@ const upcomingAnime = async () => {
       upcomingImages.append(upcomingAnimeDiv);
       upcomingAnimeDiv.classList.add("image-title-div");
 
-      //Display search result names
-      let link = results[i].url;
+      //Display names
       let upcomingAnimeTitle = `${results[i].title}`;
-      // let length = 10;
-      // let trimmedAnimeTitle = `${upcomingAnimeTitle.substring(0, length)}...`;
       let upcomingAnimeTitleNames = document.createElement("p");
       upcomingAnimeTitleNames.classList.add("anime-titles");
-      // upcomingAnimeTitleNames.setAttribute("href", link);
       upcomingAnimeTitleNames.textContent = upcomingAnimeTitle;
       upcomingAnimeDiv.append(upcomingAnimeTitleNames);
 
-      //Display search result images
+      //Display images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       upcomingAnimeDiv.append(animeButton);
+
+      let resetButton = document.createElement("button");
+      resetButton.classList.add("reset-button");
+      resetButton.textContent = "Hide";
+      upcomingAnimeDiv.append(resetButton);
+
       let upcomingAnimeImageResults = results[i].image_url;
       let upcomingAnimeImage = document.createElement("img");
       upcomingAnimeImage.setAttribute("src", upcomingAnimeImageResults);
       upcomingAnimeImage.classList.add("anime-images");
       upcomingAnimeDiv.append(upcomingAnimeImage);
+
+      animeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        upcomingAnimeImage.style.display = 'none'
+        upcomingAnimeTitleNames.style.display = 'block'
+        resetButton.style.display = 'block'
+      })
+
+      resetButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        upcomingAnimeImage.style.display = 'block'
+        upcomingAnimeTitleNames.style.display = 'none'
+        resetButton.style.display = 'none'
+      })
     }
   } catch (error) {
     console.error(error);
@@ -252,13 +275,9 @@ const actionGenre = async () => {
       actionAnimeDiv.classList.add("image-title-div");
 
       //Display search result names
-      let link = results[i].url;
-      let actionAnimeTitle = `${results[i].title}`;
-      // let length = 10;
-      // let trimmedAnimeTitle = `${actionAnimeTitle.substring(0, length)}...`;
+      let actionAnimeTitle = `${results[i].title}`
       let actionAnimeTitleNames = document.createElement("p");
       actionAnimeTitleNames.classList.add("anime-titles");
-      // actionAnimeTitleNames.setAttribute("href", link);
       actionAnimeTitleNames.textContent = actionAnimeTitle;
       actionAnimeDiv.append(actionAnimeTitleNames);
 
@@ -267,11 +286,31 @@ const actionGenre = async () => {
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       actionAnimeDiv.append(animeButton);
+
+      let resetButton = document.createElement("button");
+      resetButton.classList.add("reset-button");
+      resetButton.textContent = "Hide";
+      actionAnimeDiv.append(resetButton);
+
       let actionAnimeImageResults = results[i].image_url;
       let actionAnimeImage = document.createElement("img");
       actionAnimeImage.setAttribute("src", actionAnimeImageResults);
       actionAnimeImage.classList.add("anime-images");
       actionAnimeDiv.append(actionAnimeImage);
+
+      animeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        actionAnimeImage.style.display = 'none'
+        actionAnimeTitleNames.style.display = 'block'
+        resetButton.style.display = 'block'
+      })
+
+      resetButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        actionAnimeImage.style.display = 'block'
+        actionAnimeTitleNames.style.display = 'none'
+        resetButton.style.display = 'none'
+      })
     }
   } catch (error) {
     console.error(error);
@@ -305,27 +344,44 @@ const fantasyGenre = async () => {
       fantasyImages.append(fantasyAnimeDiv);
       fantasyAnimeDiv.classList.add("image-title-div");
 
-      //Display search result names
+      //Display names
       let link = results[i].url;
       let fantasyAnimeTitle = `${results[i].title}`;
-      // let length = 10;
-      // let trimmedAnimeTitle = `${fantasyAnimeTitle.substring(0, length)}...`;
       let fantasyAnimeTitleNames = document.createElement("p");
       fantasyAnimeTitleNames.classList.add("anime-titles");
-      fantasyAnimeTitleNames.setAttribute("href", link);
       fantasyAnimeTitleNames.textContent = fantasyAnimeTitle;
       fantasyAnimeDiv.append(fantasyAnimeTitleNames);
 
-      //Display search result images
+      //Display images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       fantasyAnimeDiv.append(animeButton);
+
+      let resetButton = document.createElement("button");
+      resetButton.classList.add("reset-button");
+      resetButton.textContent = "Hide";
+      fantasyAnimeDiv.append(resetButton);
+
       let fantasyAnimeImageResults = results[i].image_url;
       let fantasyAnimeImage = document.createElement("img");
       fantasyAnimeImage.setAttribute("src", fantasyAnimeImageResults);
       fantasyAnimeImage.classList.add("anime-images");
       fantasyAnimeDiv.append(fantasyAnimeImage);
+
+      animeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        fantasyAnimeImage.style.display = 'none'
+        fantasyAnimeTitleNames.style.display = 'block'
+        resetButton.style.display = 'block'
+      })
+
+      resetButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        fantasyAnimeImage.style.display = 'block'
+        fantasyAnimeTitleNames.style.display = 'none'
+        resetButton.style.display = 'none'
+      })
     }
   } catch (error) {
     console.error(error);
@@ -359,27 +415,44 @@ const romanceGenre = async () => {
       romanceImages.append(romanceAnimeDiv);
       romanceAnimeDiv.classList.add("image-title-div");
 
-      //Display search result names
+      //Display names
       let link = results[i].url;
       let romanceAnimeTitle = `${results[i].title}`;
-      // let length = 10;
-      // let trimmedAnimeTitle = `${romanceAnimeTitle.substring(0, length)}...`;
       let romanceAnimeTitleNames = document.createElement("p");
       romanceAnimeTitleNames.classList.add("anime-titles");
-      // romanceAnimeTitleNames.setAttribute("href", link);
       romanceAnimeTitleNames.textContent = romanceAnimeTitle;
       romanceAnimeDiv.append(romanceAnimeTitleNames);
 
-      //Display search result images
+      //Display images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
       romanceAnimeDiv.append(animeButton);
+
+      let resetButton = document.createElement("button");
+      resetButton.classList.add("reset-button");
+      resetButton.textContent = "Hide";
+      romanceAnimeDiv.append(resetButton);
+
       let romanceAnimeImageResults = results[i].image_url;
       let romanceAnimeImage = document.createElement("img");
       romanceAnimeImage.setAttribute("src", romanceAnimeImageResults);
       romanceAnimeImage.classList.add("anime-images");
       romanceAnimeDiv.append(romanceAnimeImage);
+
+      animeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        romanceAnimeImage.style.display = 'none'
+        romanceAnimeTitleNames.style.display = 'block'
+        resetButton.style.display = 'block'
+      })
+
+      resetButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        romanceAnimeImage.style.display = 'block'
+        romanceAnimeTitleNames.style.display = 'none'
+        resetButton.style.display = 'none'
+      })
     }
   } catch (error) {
     console.error(error);
