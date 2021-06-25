@@ -104,30 +104,24 @@ const currentAnime = async () => {
     currentHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      console.log(results[i].synopsis);
-
-      // let synopsisResults = results[i].synopsis;
-      // synopsis = document.createElement("p");
-      // synopsis.textContent = synopsisResults;
-      // synopsis.id = "display";
-      // // mainBorder.append(synopsis)
+      // console.log(results[i].synopsis);
 
       let currentAnimeDiv = document.createElement("div");
       currentImages.append(currentAnimeDiv);
       currentAnimeDiv.classList.add("image-title-div");
 
-      //Display search result names
+      //Display names
       let link = results[i].url;
       let currentAnimeTitle = `${results[i].title}`;
-      let length = 50;
-      let trimmedAnimeTitle = `${currentAnimeTitle.substring(0, length)}`;
-      let currentAnimeTitleNames = document.createElement("a");
+      // let length = 50;
+      // let trimmedAnimeTitle = `${currentAnimeTitle.substring(0, length)}`;
+      let currentAnimeTitleNames = document.createElement("p");
       currentAnimeTitleNames.classList.add("anime-titles");
-      currentAnimeTitleNames.setAttribute("href", link);
-      currentAnimeTitleNames.textContent = trimmedAnimeTitle;
+      // currentAnimeTitleNames.setAttribute("href", link);
+      currentAnimeTitleNames.textContent = currentAnimeTitle;
       currentAnimeDiv.append(currentAnimeTitleNames);
 
-      //Display search result images
+      //Display images
       let animeButton = document.createElement("button");
       animeButton.classList.add("anime-button");
       animeButton.textContent = "Details";
@@ -137,6 +131,20 @@ const currentAnime = async () => {
       currentAnimeImage.setAttribute("src", currentAnimeImageResults);
       currentAnimeImage.classList.add("anime-images");
       currentAnimeDiv.append(currentAnimeImage);
+
+      // Display synopsis
+      let synopsisResults = results[i].synopsis;
+      synopsis = document.createElement("p");
+      synopsis.textContent = synopsisResults;
+      synopsis.classList.add('modal')
+      // currentAnimeDiv.append(synopsis)
+
+      // animeButton.addEventListener('click', () => {
+      //   // e.preventDefault()
+      //   currentAnimeImage.style.display = 'none'
+      // })
+
+
     }
   } catch (error) {
     console.error(error);
@@ -170,12 +178,12 @@ const upcomingAnime = async () => {
       //Display search result names
       let link = results[i].url;
       let upcomingAnimeTitle = `${results[i].title}`;
-      let length = 10;
-      let trimmedAnimeTitle = `${upcomingAnimeTitle.substring(0, length)}...`;
-      let upcomingAnimeTitleNames = document.createElement("a");
+      // let length = 10;
+      // let trimmedAnimeTitle = `${upcomingAnimeTitle.substring(0, length)}...`;
+      let upcomingAnimeTitleNames = document.createElement("p");
       upcomingAnimeTitleNames.classList.add("anime-titles");
-      upcomingAnimeTitleNames.setAttribute("href", link);
-      upcomingAnimeTitleNames.textContent = trimmedAnimeTitle;
+      // upcomingAnimeTitleNames.setAttribute("href", link);
+      upcomingAnimeTitleNames.textContent = upcomingAnimeTitle;
       upcomingAnimeDiv.append(upcomingAnimeTitleNames);
 
       //Display search result images
@@ -224,12 +232,12 @@ const actionGenre = async () => {
       //Display search result names
       let link = results[i].url;
       let actionAnimeTitle = `${results[i].title}`;
-      let length = 10;
-      let trimmedAnimeTitle = `${actionAnimeTitle.substring(0, length)}...`;
-      let actionAnimeTitleNames = document.createElement("a");
+      // let length = 10;
+      // let trimmedAnimeTitle = `${actionAnimeTitle.substring(0, length)}...`;
+      let actionAnimeTitleNames = document.createElement("p");
       actionAnimeTitleNames.classList.add("anime-titles");
-      actionAnimeTitleNames.setAttribute("href", link);
-      actionAnimeTitleNames.textContent = trimmedAnimeTitle;
+      // actionAnimeTitleNames.setAttribute("href", link);
+      actionAnimeTitleNames.textContent = actionAnimeTitle;
       actionAnimeDiv.append(actionAnimeTitleNames);
 
       //Display search result images
@@ -278,12 +286,12 @@ const fantasyGenre = async () => {
       //Display search result names
       let link = results[i].url;
       let fantasyAnimeTitle = `${results[i].title}`;
-      let length = 10;
-      let trimmedAnimeTitle = `${fantasyAnimeTitle.substring(0, length)}...`;
-      let fantasyAnimeTitleNames = document.createElement("a");
+      // let length = 10;
+      // let trimmedAnimeTitle = `${fantasyAnimeTitle.substring(0, length)}...`;
+      let fantasyAnimeTitleNames = document.createElement("p");
       fantasyAnimeTitleNames.classList.add("anime-titles");
       fantasyAnimeTitleNames.setAttribute("href", link);
-      fantasyAnimeTitleNames.textContent = trimmedAnimeTitle;
+      fantasyAnimeTitleNames.textContent = fantasyAnimeTitle;
       fantasyAnimeDiv.append(fantasyAnimeTitleNames);
 
       //Display search result images
@@ -332,12 +340,12 @@ const romanceGenre = async () => {
       //Display search result names
       let link = results[i].url;
       let romanceAnimeTitle = `${results[i].title}`;
-      let length = 10;
-      let trimmedAnimeTitle = `${romanceAnimeTitle.substring(0, length)}...`;
-      let romanceAnimeTitleNames = document.createElement("a");
+      // let length = 10;
+      // let trimmedAnimeTitle = `${romanceAnimeTitle.substring(0, length)}...`;
+      let romanceAnimeTitleNames = document.createElement("p");
       romanceAnimeTitleNames.classList.add("anime-titles");
-      romanceAnimeTitleNames.setAttribute("href", link);
-      romanceAnimeTitleNames.textContent = trimmedAnimeTitle;
+      // romanceAnimeTitleNames.setAttribute("href", link);
+      romanceAnimeTitleNames.textContent = romanceAnimeTitle;
       romanceAnimeDiv.append(romanceAnimeTitleNames);
 
       //Display search result images

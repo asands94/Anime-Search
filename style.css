@@ -9,7 +9,7 @@ body {
   background: #0f0f0f;
   color: #ebebeb;
   font-family:'PT Sans', sans-serif;
-  font-size: x-large;
+  font-size: large;
   align-items: center;
 }
 
@@ -24,7 +24,7 @@ h1 {
   margin: 0 0 7px 150px;
   font-family: 'Acme', sans-serif;
   color: #74040f;
-  font-size:larger;
+  font-size: x-large;
 }
 
 h2 {
@@ -32,7 +32,7 @@ h2 {
 }
 
 h2:hover {
-  color: #74040f;
+  color: #ffffff;
 }
 
 a {
@@ -78,14 +78,14 @@ footer {
   background: #000000;
   width: 170px;
   padding: 0;
-  border-radius: 8%;
   margin: 0 7px 20px 7px;
   transition: transform .4s;
   position: relative;
+  
 }
 
 .image-title-div:hover{
-  transform: scale(1.1)
+  transform: scale(1.1);
  }
 
 .anime-titles {
@@ -94,13 +94,15 @@ footer {
 
 .image-title-div:hover .anime-titles {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%); /* first number changes horizontal and second changes vertical direction */
   color: white;
-  font-size: 13px;
-  border-radius: 5px;
+  font-size: 15px;
+  padding: 0;
   display: block;
+  width: 90%;
+  align-items: flex-start;
 }
 
 .anime-button {
@@ -115,12 +117,11 @@ footer {
   background: #74040f;
   color: white;
   font-size: 16px;
-  padding: 10px 24px;
+  padding: 12px 24px;
   border: solid #74040f;
   cursor: pointer;
   border-radius: 5px;
   display: block;
-  opacity: 1;
 }
 
 .anime-images, 
@@ -129,9 +130,6 @@ footer {
   width: 170px;
 }
 
-.anime-search-images {
-  margin: 7px;
-}
 
 .anime-images:hover,
 .anime-search-images:hover {
@@ -234,7 +232,7 @@ footer {
   flex-flow: column wrap;
   justify-content: center;
   overflow: scroll;
-  height: 290px;
+  height: 310px;
   align-items: flex-end;
   width: 90%;
   border-top: 5px solid #740407 ;
