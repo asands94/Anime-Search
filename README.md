@@ -81,7 +81,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Create functional form | H |2hrs| 0.5hrs | 0.5hrs |
-| Format form information using CSS | H | 3hrs| 5.5hrs | |
+| Format form information using CSS | H | 3hrs| 7hrs | |
 | Create currently airing anime section | H | 4hrs| 0.5hrs | 0.5hrs |
 | Add top anime to header and format header section | H | 3hrs| 1.5hrs | 1.5hrs |
 | Add hover effects for the images | L | 3hrs| 1hr | 1hr |
@@ -94,7 +94,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | add go back up top of the page button | L | 2hrs| 0.5hrs |  |
 | create watch later list | L | 4hrs|  |  |
 | add different genres to page | L | 1hr| 0.5hrs | 0.5hrs |
-| Total |  | 38hrs| 23.5hrs |  |
+| Total |  | 38hrs| 25hrs |  |
 
 ## Code Snippet
 
