@@ -81,20 +81,20 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Create functional form | H |2hrs| 0.5hrs | 0.5hrs |
-| Format form information using CSS | H | 3hrs| 7hrs | |
+| Format form information using CSS | H | 3hrs| 7hrs | 7hrs |
 | Create currently airing anime section | H | 4hrs| 0.5hrs | 0.5hrs |
 | Add top anime to header and format header section | H | 3hrs| 1.5hrs | 1.5hrs |
 | Add hover effects for the images | L | 3hrs| 1hr | 1hr |
-| Go through all data I want to display for the anime | H | 2hrs| |  |
-| query for mobile | H | 3hrs| 6hr |  |
-| Format general website (background, footer) | H | 3hrs| 14hrs |  |
-| Testing out information taken from API (image sizes, kinds of information, search functionality) | H | 3hrs|  |  |
+| Go through all data I want to display for the anime | H | 2hrs| 1hr | 0.5hrs |
+| query for mobile | H | 3hrs| 6hrs | 6hrs |
+| Format general website (background, footer) | H | 3hrs| 13.5hrs | 13.5hrs |
+| Testing out information taken from API (image sizes, kinds of information, search functionality) | H | 3hrs| 1hr | 1hr |
 | Add image carousel | L | 5hrs|  |  |
-| Add links at top of page that go to different sections | L | 1hrs| 0.5hrs |  |
-| add go back up top of the page button | L | 2hrs| 0.5hrs |  |
+| Add links at top of page that go to different sections | L | 1hrs| 0.5hrs | 0.5hrs |
+| add go back up top of the page button | L | 2hrs| 0.5hrs | 0.5hrs |
 | create watch later list | L | 4hrs|  |  |
 | add different genres to page | L | 1hr| 0.5hrs | 0.5hrs |
-| Total |  | 38hrs| 32hrs |  |
+| Total |  | 38hrs| 33hrs |  |
 
 ## Code Snippet
 
