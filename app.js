@@ -141,7 +141,7 @@ const currentAnime = async () => {
     currentHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      console.log(results[i].title);
+      // console.log(results[i].title);
 
       // Create a div to append all the data to
       let currentAnimeDiv = document.createElement("div");
@@ -563,6 +563,40 @@ const romanceGenre = async () => {
 };
 
 romanceGenre();
+
+
+const middleBanner = async () => {
+  try {
+    const middleBannerURL = `https://api.jikan.moe/v3/search/anime?q=fruitsbasket&limit=4`;
+    const middleBannerDisplay = await axios.get(middleBannerURL);
+    console.log(middleBannerDispla.data)
+
+    // let headerLink = animeHeaderDisplay.data.results[2].url;
+    // let headerTitle = animeHeaderDisplay.data.results[2].title;
+    // titleDisplay = document.createElement("a");
+    // titleDisplay.classList.add("header-text");
+    // titleDisplay.setAttribute("href", headerLink);
+    // titleDisplay.textContent = headerTitle;
+    // bgImageTitle.prepend(titleDisplay);
+
+    // let headerSyn = animeHeaderDisplay.data.results[2].synopsis;
+    // synDisplay = document.createElement("p");
+    // synDisplay.classList.add("header-description");
+    // synDisplay.textContent = headerSyn;
+    // bgImageTitle.append(synDisplay);
+
+    // let headerImage = animeHeaderDisplay.data.results[2].image_url;
+    // const headerImg = document.createElement("img");
+    // headerImg.setAttribute("src", headerImage);
+    // headerImg.classList.add("bg-header-image");
+    // bgImage.append(headerImg);
+  } catch (error) {
+    console.error(error);
+  }
+};
+middleBanner();
+
+
 
 
 // Event Listeners

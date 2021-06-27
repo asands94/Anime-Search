@@ -9,7 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-image: linear-gradient(#000000, #000000, #000000, #000000, #3B0208); */
   background: #0f0f0f;
   color: #ebebeb;
   font-family:'PT Sans', sans-serif;
