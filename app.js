@@ -14,7 +14,6 @@ const animeSearch = async () => {
     document.getElementById("search-shows").value = "";
     const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=24`;
     const animeSearchResults = await axios.get(animeSearchURL);
-    // console.log(animeSearchResults.data.results)
     const results = animeSearchResults.data.results;
 
     searchHeader.insertAdjacentHTML("afterbegin", "<h2>Search Results</h2>");
@@ -99,14 +98,14 @@ const animeHeader = async () => {
 
     let headerLink = animeHeaderDisplay.data.results[2].url;
     let headerTitle = animeHeaderDisplay.data.results[2].title;
-    titleDisplay = document.createElement("a");
+    let titleDisplay = document.createElement("a");
     titleDisplay.classList.add("header-text");
     titleDisplay.setAttribute("href", headerLink);
     titleDisplay.textContent = headerTitle;
     bgImageTitle.prepend(titleDisplay);
 
     let headerSyn = animeHeaderDisplay.data.results[2].synopsis;
-    synDisplay = document.createElement("p");
+    let synDisplay = document.createElement("p");
     synDisplay.classList.add("header-description");
     synDisplay.textContent = headerSyn;
     bgImageTitle.append(synDisplay);
@@ -564,32 +563,42 @@ const romanceGenre = async () => {
 
 romanceGenre();
 
+const banner = document.getElementById("banner-container")
+const bannerText = document.getElementById("banner-text")
+const bannerImage = document.getElementById("banner-image")
 
 const middleBanner = async () => {
   try {
-    const middleBannerURL = `https://api.jikan.moe/v3/search/anime?q=fruitsbasket&limit=4`;
+    const middleBannerURL = `https://api.jikan.moe/v3/top/anime/1/upcoming`;
     const middleBannerDisplay = await axios.get(middleBannerURL);
-    console.log(middleBannerDispla.data)
+    console.log(middleBannerDisplay.data.top)
 
-    // let headerLink = animeHeaderDisplay.data.results[2].url;
-    // let headerTitle = animeHeaderDisplay.data.results[2].title;
-    // titleDisplay = document.createElement("a");
-    // titleDisplay.classList.add("header-text");
-    // titleDisplay.setAttribute("href", headerLink);
-    // titleDisplay.textContent = headerTitle;
-    // bgImageTitle.prepend(titleDisplay);
+    
+    let results = middleBannerDisplay.data.top
 
-    // let headerSyn = animeHeaderDisplay.data.results[2].synopsis;
-    // synDisplay = document.createElement("p");
-    // synDisplay.classList.add("header-description");
-    // synDisplay.textContent = headerSyn;
-    // bgImageTitle.append(synDisplay);
 
-    // let headerImage = animeHeaderDisplay.data.results[2].image_url;
-    // const headerImg = document.createElement("img");
-    // headerImg.setAttribute("src", headerImage);
-    // headerImg.classList.add("bg-header-image");
-    // bgImage.append(headerImg);
+      // Display images
+      let bannerImgResults = results[0].image_url
+      let bannerImg = document.createElement("img");
+      bannerImg.setAttribute("src", bannerImgResults);
+      bannerImg.classList.add("banner-image");
+      bannerImage.append(bannerImg);
+
+      // Display text
+      let bannerTitle = results[0].title
+      let bannerTitleDisplay = document.createElement("a");
+      bannerTitleDisplay.classList.add("banner-text");
+      bannerTitleDisplay.textContent = bannerTitle
+      bannerTitleDisplay.setAttribute("href", results[0].url)
+      bannerText.append(bannerTitleDisplay);
+
+      let bannerDate = results[0].start_date
+      let dateDisplay = document.createElement("p");
+      dateDisplay.classList.add("banner-description");
+      dateDisplay.textContent = `Coming: ${bannerDate}`;
+      bannerText.append(dateDisplay);
+
+
   } catch (error) {
     console.error(error);
   }
