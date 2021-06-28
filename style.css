@@ -13,6 +13,8 @@ body {
   color: #ebebeb;
   font-family:'PT Sans', sans-serif;
   font-size: large;
+  overflow-x: hidden;
+  margin: 0
 }
 
 header {
@@ -20,7 +22,7 @@ header {
   justify-content: space-between;
   align-items: flex;
   width: 90%;
-  margin: 10px 0 0 0;
+  margin: 10px 0 18px 0;
 }
 
 h1 {
