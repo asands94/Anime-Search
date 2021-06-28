@@ -2,7 +2,7 @@
 
 ## Anime+
 
-[Deployed Project](URL)
+[Deployed Project](https://asands94.github.io/AnimePlus/)
 
 ## Project Description
 
