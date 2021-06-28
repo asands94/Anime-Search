@@ -127,6 +127,7 @@ footer {
   transform: scale(1.1);
  }
 
+ /* Source: https://www.w3schools.com/howto/howto_css_button_on_image.asp*/
 .anime-button, 
 .image-title-div:hover .anime-button {
   display: none;
