@@ -128,13 +128,15 @@ footer {
  }
 
  /* Source: https://www.w3schools.com/howto/howto_css_button_on_image.asp*/
-.anime-button, 
+.anime-button{
+  display: none
+}
+
 .image-title-div:hover .anime-button {
-  display: none;
+  display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 20%;
   background: #74040f;
   color: white;
   font-size: 16px;
@@ -142,10 +144,6 @@ footer {
   border: solid #74040f;
   cursor: pointer;
   border-radius: 5px;
-}
-
-.image-title-div:hover .anime-button {
-  display: block;
 }
 
 .anime-images, 
