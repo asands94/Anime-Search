@@ -94,7 +94,6 @@ const animeHeader = async () => {
   try {
     const animeHeaderURL = `https://api.jikan.moe/v3/search/anime?q=fruitsbasket&limit=4`;
     const animeHeaderDisplay = await axios.get(animeHeaderURL);
-    // console.log(animeHeaderDisplay.data.results[2].url)
 
     let headerLink = animeHeaderDisplay.data.results[2].url;
     let headerTitle = animeHeaderDisplay.data.results[2].title;
@@ -128,7 +127,6 @@ const currentAnime = async () => {
   try {
     const currentAnimeURL = `https://api.jikan.moe/v3/season`;
     const currentShows = await axios.get(currentAnimeURL);
-    // console.log(currentShows.data.anime)
     let seasonName = currentShows.data.season_name;
 
     let results = currentShows.data.anime;
@@ -140,7 +138,6 @@ const currentAnime = async () => {
     currentHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].title);
 
       // Create a div to append all the data to
       let currentAnimeDiv = document.createElement("div");
@@ -217,8 +214,6 @@ const upcomingAnime = async () => {
   try {
     const upcomingAnimeURL = `https://api.jikan.moe/v3/season/later`;
     const upcomingShows = await axios.get(upcomingAnimeURL);
-    // console.log(upcomingShows.data.anime)
-    let upcomingName = upcomingShows.data.season_name;
 
     let results = upcomingShows.data.anime;
 
@@ -226,7 +221,6 @@ const upcomingAnime = async () => {
     upcomingHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].title)
 
       // Create a div to append all the data to
       let upcomingAnimeDiv = document.createElement("div");
@@ -303,7 +297,6 @@ const actionGenre = async () => {
   try {
     const actionGenreURL = `https://api.jikan.moe/v3/genre/anime/1`;
     const actionGenre = await axios.get(actionGenreURL);
-    // console.log(actionGenre.data.mal_url.name);
     let actionGenreName = actionGenre.data.mal_url.name;
 
     let results = actionGenre.data.anime;
@@ -315,7 +308,6 @@ const actionGenre = async () => {
     actionHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].title)
 
        // Create a div to append all the data to
        let actionAnimeDiv = document.createElement("div");
@@ -392,7 +384,6 @@ const fantasyGenre = async () => {
   try {
     const fantasyGenreURL = `https://api.jikan.moe/v3/genre/anime/10`;
     const fantasyGenre = await axios.get(fantasyGenreURL);
-    // console.log(fantasyGenre.data.mal_url.name);
     let fantasyGenreName = fantasyGenre.data.mal_url.name;
 
     let results = fantasyGenre.data.anime;
@@ -404,7 +395,6 @@ const fantasyGenre = async () => {
     fantasyHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].title)
 
       // Create a div to append all the data to
       let fantasyAnimeDiv = document.createElement("div");
@@ -481,7 +471,6 @@ const romanceGenre = async () => {
   try {
     const romanceGenreURL = `https://api.jikan.moe/v3/genre/anime/22`;
     const romanceGenre = await axios.get(romanceGenreURL);
-    // console.log(romanceGenre.data);
     let romanceGenreName = romanceGenre.data.mal_url.name;
 
     let results = romanceGenre.data.anime;
@@ -493,7 +482,6 @@ const romanceGenre = async () => {
     romanceHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i].title)
 
       // Create a div to append all the data to
       let romanceAnimeDiv = document.createElement("div");
@@ -571,12 +559,9 @@ const middleBanner = async () => {
   try {
     const middleBannerURL = `https://api.jikan.moe/v3/top/anime/1/upcoming`;
     const middleBannerDisplay = await axios.get(middleBannerURL);
-    console.log(middleBannerDisplay.data.top)
-
     
     let results = middleBannerDisplay.data.top
-
-
+    
       // Display images
       let bannerImgResults = results[0].image_url
       let bannerImg = document.createElement("img");
