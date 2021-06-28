@@ -48,7 +48,7 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 - ~~Render image and title, based on the search results~~
 - ~~Have dynamic header image that showcases most popular anime at the time (may not change often)~~ (the API does not have a synopsis of popular anime, so this will be a static image instead in order to include synopsis pulled from the API)
 - ~~Styling with flexbox~~
-- Media query for mobile
+- ~~Media query for mobile~~
 
 
 #### PostMVP  
@@ -101,10 +101,15 @@ I am using the Jikan API which pulls data from MyAnimeList and gives data on ani
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+animeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        modalContent.style.display = "block"
+
+        closeBtn.addEventListener('click', () => {
+          modalContent.style.display = 'none'
+        })
+      }) // Used to display and hide the modal
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ Did not add a watch later list because of time restraints and focusing on other aspects of the project.  
