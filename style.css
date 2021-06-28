@@ -43,7 +43,7 @@ a {
 }
 
 a:hover {
-  color: #3B0208;
+  color: #8d0714;
   text-decoration: none; 
 }
 
@@ -293,6 +293,10 @@ footer {
   width: 50px;
   font-size: xx-large;
   margin: 0 0 7px 0;
+}
+
+#back-up:hover {
+  background: #a9a9a9;
 }
 
 #back-up:hover {
