@@ -561,7 +561,7 @@ const middleBanner = async () => {
     const middleBannerDisplay = await axios.get(middleBannerURL);
     
     let results = middleBannerDisplay.data.top
-    
+
       // Display images
       let bannerImgResults = results[0].image_url
       let bannerImg = document.createElement("img");
@@ -589,8 +589,6 @@ const middleBanner = async () => {
   }
 };
 middleBanner();
-
-
 
 
 // Event Listeners
