@@ -101,11 +101,21 @@ const animeHeader = async () => {
     bgImageTitle.prepend(titleDisplay);
 
     let headerSyn = animeHeaderDisplay.data.data[2].synopsis;
-    console.log(headerSyn.length)
-    let synDisplay = document.createElement("p");
-    synDisplay.classList.add("header-description");
-    synDisplay.textContent = headerSyn;
-    bgImageTitle.append(synDisplay);
+    if (headerSyn.length > 436) {
+      const synArray = headerSyn.split(' ')
+      const remainingWords = synArray.slice(0, 50)
+      const finalSyn = remainingWords.join(' ')
+
+      let synDisplay = document.createElement("p");
+      synDisplay.classList.add("header-description");
+      synDisplay.textContent = finalSyn + '...';
+      bgImageTitle.append(synDisplay);
+    } else {
+      let synDisplay = document.createElement("p");
+      synDisplay.classList.add("header-description");
+      synDisplay.textContent = headerSyn ;
+      bgImageTitle.append(synDisplay);
+    }
 
     let headerImage = animeHeaderDisplay.data.data[2].images.jpg.image_url;
     const headerImg = document.createElement("img");
