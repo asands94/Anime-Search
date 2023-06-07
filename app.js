@@ -222,10 +222,10 @@ const upcomingImages = document.getElementById("upcoming-images");
 
 const upcomingAnime = async () => {
   try {
-    const upcomingAnimeURL = `https://api.jikan.moe/v3/season/later`;
+    const upcomingAnimeURL = `https://api.jikan.moe/v4/seasons/upcoming`;
     const upcomingShows = await axios.get(upcomingAnimeURL);
 
-    let results = upcomingShows.data.anime;
+    let results = upcomingShows.data.data;
 
     upcomingHeader.insertAdjacentHTML("afterbegin", `<h2>Upcoming Anime</h2>`);
     upcomingHeader.classList.add("anime-genres");
@@ -244,7 +244,7 @@ const upcomingAnime = async () => {
       upcomingAnimeDiv.append(animeButton);
 
       // Display images
-      let upcomingAnimeImageResults = results[i].image_url;
+      let upcomingAnimeImageResults = results[i].images.jpg.image_url;
       let upcomingAnimeImage = document.createElement("img");
       upcomingAnimeImage.setAttribute("src", upcomingAnimeImageResults);
       upcomingAnimeImage.classList.add("anime-images");
@@ -277,7 +277,7 @@ const upcomingAnime = async () => {
       modalBox.append(synopsis)
 
       // Display images in modal
-      let upcomingAnimeImageResults2 = results[i].image_url;
+      let upcomingAnimeImageResults2 = results[i].images.jpg.image_url;
       let upcomingAnimeImage2 = document.createElement("img");
       upcomingAnimeImage2.setAttribute("src", upcomingAnimeImageResults2);
       modalBox.append(upcomingAnimeImage2);
