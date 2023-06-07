@@ -12,16 +12,14 @@ const animeSearch = async () => {
   try {
     let animeShowName = document.getElementById("search-shows").value;
     document.getElementById("search-shows").value = "";
-    const animeSearchURL = `https://api.jikan.moe/v3/search/anime?q=${animeShowName}&limit=24`;
+    const animeSearchURL = `https://api.jikan.moe/v4/anime?q=${animeShowName}&limit=24`;
     const animeSearchResults = await axios.get(animeSearchURL);
-    const results = animeSearchResults.data.results;
+    const results = animeSearchResults.data.data;
 
     searchHeader.insertAdjacentHTML("afterbegin", "<h2>Search Results</h2>");
     searchHeader.classList.add("anime-search");
 
     for (let i = 0; i < results.length; i++) {
-      console.log(results[i].image_url)
-      console.log(results[i].url)
 
       // Create a div to append all the data to
       let imageDiv = document.createElement("div");
@@ -35,7 +33,7 @@ const animeSearch = async () => {
       imageDiv.append(animeButton);
 
       // Display images
-      let animeImageResults = results[i].image_url;
+      let animeImageResults = results[i].images.jpg.image_url;
       let animeImage = document.createElement("img");
       animeImage.setAttribute("src", animeImageResults);
       animeImage.classList.add("anime-search-images");
@@ -68,11 +66,10 @@ const animeSearch = async () => {
       modalBox.append(synopsis)
 
       // Display images in modal
-      let animeImageResults2 = results[i].image_url;
+      let animeImageResults2 = results[i].images.jpg.image_url;
       let animeImage2 = document.createElement("img");
       animeImage2.setAttribute("src", animeImageResults2);
       modalBox.append(animeImage2);
-      
       
       // Event listeners
       animeButton.addEventListener('click', (e) => {
@@ -92,24 +89,25 @@ const animeSearch = async () => {
 
 const animeHeader = async () => {
   try {
-    const animeHeaderURL = `https://api.jikan.moe/v3/search/anime?q=fruitsbasket&limit=4`;
+    const animeHeaderURL = `https://api.jikan.moe/v4/anime?q=fruits-basket&limit=4`;
     const animeHeaderDisplay = await axios.get(animeHeaderURL);
 
-    let headerLink = animeHeaderDisplay.data.results[2].url;
-    let headerTitle = animeHeaderDisplay.data.results[2].title;
+    let headerLink = animeHeaderDisplay.data.data[2].url;
+    let headerTitle = animeHeaderDisplay.data.data[2].title;
     let titleDisplay = document.createElement("a");
     titleDisplay.classList.add("header-text");
     titleDisplay.setAttribute("href", headerLink);
     titleDisplay.textContent = headerTitle;
     bgImageTitle.prepend(titleDisplay);
 
-    let headerSyn = animeHeaderDisplay.data.results[2].synopsis;
+    let headerSyn = animeHeaderDisplay.data.data[2].synopsis;
+    console.log(headerSyn.length)
     let synDisplay = document.createElement("p");
     synDisplay.classList.add("header-description");
     synDisplay.textContent = headerSyn;
     bgImageTitle.append(synDisplay);
 
-    let headerImage = animeHeaderDisplay.data.results[2].image_url;
+    let headerImage = animeHeaderDisplay.data.data[2].images.jpg.image_url;
     const headerImg = document.createElement("img");
     headerImg.setAttribute("src", headerImage);
     headerImg.classList.add("bg-header-image");
