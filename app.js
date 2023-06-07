@@ -133,15 +133,17 @@ const currentImages = document.getElementById("current-images");
 
 const currentAnime = async () => {
   try {
-    const currentAnimeURL = `https://api.jikan.moe/v3/season`;
+    const currentAnimeURL = `https://api.jikan.moe/v4/seasons/now`;
     const currentShows = await axios.get(currentAnimeURL);
-    let seasonName = currentShows.data.season_name;
+    let currentSeason = currentShows.data.data;
 
-    let results = currentShows.data.anime;
+    console.log(currentSeason)
+
+    let results = currentShows.data.data;
 
     currentHeader.insertAdjacentHTML(
       "afterbegin",
-      `<h2>${seasonName} Anime</h2>`
+      `<h2>Current Anime</h2>`
     );
     currentHeader.classList.add("anime-genres");
 
@@ -159,7 +161,7 @@ const currentAnime = async () => {
       currentAnimeDiv.append(animeButton);
 
       // Display images
-      let currentAnimeImageResults = results[i].image_url;
+      let currentAnimeImageResults = results[i].images.jpg.image_url;
       let currentAnimeImage = document.createElement("img");
       currentAnimeImage.setAttribute("src", currentAnimeImageResults);
       currentAnimeImage.classList.add("anime-images");
@@ -192,7 +194,7 @@ const currentAnime = async () => {
       modalBox.append(synopsis)
 
       // Display images in modal
-      let currentAnimeImageResults2 = results[i].image_url;
+      let currentAnimeImageResults2 = results[i].images.jpg.image_url;
       let currentAnimeImage2 = document.createElement("img");
       currentAnimeImage2.setAttribute("src", currentAnimeImageResults2);
       modalBox.append(currentAnimeImage2);
