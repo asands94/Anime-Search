@@ -8,13 +8,27 @@ const bgImage = document.getElementById("main-image");
 const bgImageTitle = document.getElementById("main-text");
 const mainBorder = document.getElementById("main-border");
 
+// const animeSearchCache = {}
+// let showQuery = document.getElementById("search-shows").value;
+
+// const animeSearch = async (animeShowName) => {
+//   if (!animeSearchCache[animeShowName]) {
+//     document.getElementById("search-shows").value = animeShowName;
+//     const { data } = await axios.get(`https://api.jikan.moe/v4/anime?q=${animeShowName}&limit=24`)
+//     animeSearchCache[animeShowName] = data.data
+//   }
+//     console.log(animeSearchCache[animeShowName])
+// }
+
 const animeSearch = async () => {
+
   try {
+    
     let animeShowName = document.getElementById("search-shows").value;
     document.getElementById("search-shows").value = "";
-    const animeSearchURL = `https://api.jikan.moe/v4/anime?q=${animeShowName}&limit=24`;
-    const animeSearchResults = await axios.get(animeSearchURL);
-    const results = animeSearchResults.data.data;
+    const animeSearch = axios.get(`https://api.jikan.moe/v4/anime?q=${animeShowName}&limit=24`)
+
+    const results = animeSearch.data.data;
 
     searchHeader.insertAdjacentHTML("afterbegin", "<h2>Search Results</h2>");
     searchHeader.classList.add("anime-search");
@@ -87,20 +101,25 @@ const animeSearch = async () => {
   }
 };
 
-const animeHeader = async () => {
+const headerCache = {}
+
+const animeHeader = async (showName) => {
   try {
-    const animeHeaderURL = `https://api.jikan.moe/v4/anime?q=fruits-basket&limit=4`;
-    const animeHeaderDisplay = await axios.get(animeHeaderURL);
 
-    let headerLink = animeHeaderDisplay.data.data[2].url;
-    let headerTitle = animeHeaderDisplay.data.data[2].title;
-    let titleDisplay = document.createElement("a");
-    titleDisplay.classList.add("header-text");
-    titleDisplay.setAttribute("href", headerLink);
-    titleDisplay.textContent = headerTitle;
-    bgImageTitle.prepend(titleDisplay);
+    if (!headerCache[showName]) {
+      const  data  = await axios.get(`https://api.jikan.moe/v4/anime?q=${showName}&limit=4`)
+      const animeHeaderDisplay = data
+      headerCache[showName] = animeHeaderDisplay
 
-    let headerSyn = animeHeaderDisplay.data.data[2].synopsis;
+      let headerLink = headerCache[showName].data.data[2].url;
+      let headerTitle = headerCache[showName].data.data[2].title;
+      let titleDisplay = document.createElement("a");
+      titleDisplay.classList.add("header-text");
+      titleDisplay.setAttribute("href", headerLink);
+      titleDisplay.textContent = headerTitle;
+      bgImageTitle.prepend(titleDisplay);
+
+    let headerSyn = headerCache[showName].data.data[2].synopsis;
     if (headerSyn.length > 436) {
       const synArray = headerSyn.split(' ')
       const remainingWords = synArray.slice(0, 50)
@@ -117,118 +136,128 @@ const animeHeader = async () => {
       bgImageTitle.append(synDisplay);
     }
 
-    let headerImage = animeHeaderDisplay.data.data[2].images.jpg.image_url;
+    let headerImage = headerCache[showName].data.data[2].images.jpg.image_url;
     const headerImg = document.createElement("img");
     headerImg.setAttribute("src", headerImage);
     headerImg.classList.add("bg-header-image");
     bgImage.append(headerImg);
+    }
+
   } catch (error) {
     console.error(error);
   }
 };
-animeHeader();
+animeHeader('fruits-basket');
 
 const currentHeader = document.getElementById("current-header");
 const currentImages = document.getElementById("current-images");
+const currentAnimeCache = {}
 
-const currentAnime = async () => {
+const currentAnime = async (now) => {
+  currentHeader.insertAdjacentHTML(
+    "afterbegin",
+    `<h2>Current Anime</h2>`
+  );
+  currentHeader.classList.add("anime-genres");
+
   try {
-    const currentAnimeURL = `https://api.jikan.moe/v4/seasons/now`;
-    const currentShows = await axios.get(currentAnimeURL);
-    let currentSeason = currentShows.data.data;
 
-    console.log(currentSeason)
+    if (!currentAnimeCache[now]) {
+      const data = await axios.get(`https://api.jikan.moe/v4/seasons/${now}`)
+      const currentShows = data
+      currentAnimeCache[now] = currentShows
 
-    let results = currentShows.data.data;
+      let results = currentAnimeCache[now].data.data;
 
-    currentHeader.insertAdjacentHTML(
-      "afterbegin",
-      `<h2>Current Anime</h2>`
-    );
-    currentHeader.classList.add("anime-genres");
-
-    for (let i = 0; i < results.length; i++) {
-
-      // Create a div to append all the data to
-      let currentAnimeDiv = document.createElement("div");
-      currentImages.append(currentAnimeDiv);
-      currentAnimeDiv.classList.add("image-title-div");
-
-      // Create buttons to go ontop of images
-      let animeButton = document.createElement("button");
-      animeButton.classList.add("anime-button");
-      animeButton.textContent = "Details";
-      currentAnimeDiv.append(animeButton);
-
-      // Display images
-      let currentAnimeImageResults = results[i].images.jpg.image_url;
-      let currentAnimeImage = document.createElement("img");
-      currentAnimeImage.setAttribute("src", currentAnimeImageResults);
-      currentAnimeImage.classList.add("anime-images");
-      currentAnimeDiv.append(currentAnimeImage);
-
-      // Create modal
-      const modalContent = document.createElement("div")
-      modalContent.classList.add('modal-content')
-      mainHeader.append(modalContent)
-
-      const modalBox = document.createElement("div")
-      modalBox.classList.add('modal-box')
-      modalContent.append(modalBox)
-
-      const closeBtn = document.createElement("span")
-      closeBtn.classList.add('close')
-      closeBtn.textContent = 'x'
-      modalBox.append(closeBtn)
-
-      // Display titles in modal
-      let currentAnimeTitle = results[i].title;
-      let currentAnimeTitleNames = document.createElement("h2");
-      currentAnimeTitleNames.textContent = currentAnimeTitle;
-      modalBox.append(currentAnimeTitleNames);
-
-      // Display synopsis in modal
-      let synopsisResults = results[i].synopsis;
-      let synopsis = document.createElement("p");
-      synopsis.textContent = synopsisResults;
-      modalBox.append(synopsis)
-
-      // Display images in modal
-      let currentAnimeImageResults2 = results[i].images.jpg.image_url;
-      let currentAnimeImage2 = document.createElement("img");
-      currentAnimeImage2.setAttribute("src", currentAnimeImageResults2);
-      modalBox.append(currentAnimeImage2);
-      
-      // Event listeners
-      animeButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        modalContent.style.display = "block"
-
-        closeBtn.addEventListener('click', () => {
-          modalContent.style.display = 'none'
+      for (let i = 0; i < results.length; i++) {
+  
+        // Create a div to append all the data to
+        let currentAnimeDiv = document.createElement("div");
+        currentImages.append(currentAnimeDiv);
+        currentAnimeDiv.classList.add("image-title-div");
+  
+        // Create buttons to go ontop of images
+        let animeButton = document.createElement("button");
+        animeButton.classList.add("anime-button");
+        animeButton.textContent = "Details";
+        currentAnimeDiv.append(animeButton);
+  
+        // Display images
+        let currentAnimeImageResults = results[i].images.jpg.image_url;
+        let currentAnimeImage = document.createElement("img");
+        currentAnimeImage.setAttribute("src", currentAnimeImageResults);
+        currentAnimeImage.classList.add("anime-images");
+        currentAnimeDiv.append(currentAnimeImage);
+  
+        // Create modal
+        const modalContent = document.createElement("div")
+        modalContent.classList.add('modal-content')
+        mainHeader.append(modalContent)
+  
+        const modalBox = document.createElement("div")
+        modalBox.classList.add('modal-box')
+        modalContent.append(modalBox)
+  
+        const closeBtn = document.createElement("span")
+        closeBtn.classList.add('close')
+        closeBtn.textContent = 'x'
+        modalBox.append(closeBtn)
+  
+        // Display titles in modal
+        let currentAnimeTitle = results[i].title;
+        let currentAnimeTitleNames = document.createElement("h2");
+        currentAnimeTitleNames.textContent = currentAnimeTitle;
+        modalBox.append(currentAnimeTitleNames);
+  
+        // Display synopsis in modal
+        let synopsisResults = results[i].synopsis;
+        let synopsis = document.createElement("p");
+        synopsis.textContent = synopsisResults;
+        modalBox.append(synopsis)
+  
+        // Display images in modal
+        let currentAnimeImageResults2 = results[i].images.jpg.image_url;
+        let currentAnimeImage2 = document.createElement("img");
+        currentAnimeImage2.setAttribute("src", currentAnimeImageResults2);
+        modalBox.append(currentAnimeImage2);
+        
+        // Event listeners
+        animeButton.addEventListener('click', (e) => {
+          e.preventDefault()
+          modalContent.style.display = "block"
+  
+          closeBtn.addEventListener('click', () => {
+            modalContent.style.display = 'none'
+          })
         })
-      })
+  
+      }
 
     }
+   
   } catch (error) {
     console.error(error);
   }
 };
 
-currentAnime();
+currentAnime('now');
 
 const upcomingHeader = document.getElementById("upcoming-header");
 const upcomingImages = document.getElementById("upcoming-images");
+const upcomingAnimeCache = {}
 
-const upcomingAnime = async () => {
+const upcomingAnime = async (upcoming) => {
+
+  upcomingHeader.insertAdjacentHTML("afterbegin", `<h2>Upcoming Anime</h2>`);
+  upcomingHeader.classList.add("anime-genres");
   try {
-    const upcomingAnimeURL = `https://api.jikan.moe/v4/seasons/upcoming`;
-    const upcomingShows = await axios.get(upcomingAnimeURL);
+    if (!upcomingAnimeCache[upcoming]) {
+      const data = await axios.get(`https://api.jikan.moe/v4/seasons/${upcoming}`)
+      const upcomingShows = data
+      upcomingAnimeCache[upcoming] = upcomingShows
 
-    let results = upcomingShows.data.data;
+      let results = upcomingAnimeCache[upcoming].data.data;
 
-    upcomingHeader.insertAdjacentHTML("afterbegin", `<h2>Upcoming Anime</h2>`);
-    upcomingHeader.classList.add("anime-genres");
 
     for (let i = 0; i < results.length; i++) {
 
@@ -293,29 +322,34 @@ const upcomingAnime = async () => {
     })
 
     }
+    }
+
+    
   } catch (error) {
     console.error(error);
   }
 };
 
-upcomingAnime();
+upcomingAnime('upcoming');
 
 const actionHeader = document.getElementById("action-header");
 const actionImages = document.getElementById("action-images");
 
-const actionGenre = async () => {
+const actionCache = {}
+
+const actionGenre = async (action) => {
+  actionHeader.insertAdjacentHTML(
+    "afterbegin",
+    `<h2>Action</h2>`
+  );
+  actionHeader.classList.add("anime-genres");
   try {
-    const actionGenreURL = `https://api.jikan.moe/v3/genre/anime/1`;
-    const actionGenre = await axios.get(actionGenreURL);
-    let actionGenreName = actionGenre.data.mal_url.name;
+    if (!actionCache[action]) {
+      const data = await axios.get(`https://api.jikan.moe/v4/anime?genres=${action}`)
+      const actionGenre = data
+      actionCache[action] = actionGenre
 
-    let results = actionGenre.data.anime;
-
-    actionHeader.insertAdjacentHTML(
-      "afterbegin",
-      `<h2>${actionGenreName}</h2>`
-    );
-    actionHeader.classList.add("anime-genres");
+      let results = actionCache[action].data.data;
 
     for (let i = 0; i < results.length; i++) {
 
@@ -331,7 +365,7 @@ const actionGenre = async () => {
        actionAnimeDiv.append(animeButton);
  
        // Display images
-       let actionAnimeImageResults = results[i].image_url;
+       let actionAnimeImageResults = results[i].images.jpg.image_url;
        let actionAnimeImage = document.createElement("img");
        actionAnimeImage.setAttribute("src", actionAnimeImageResults);
        actionAnimeImage.classList.add("anime-images");
@@ -364,7 +398,7 @@ const actionGenre = async () => {
        modalBox.append(synopsis)
  
        // Display images in modal
-       let actionAnimeImageResults2 = results[i].image_url;
+       let actionAnimeImageResults2 = results[i].images.jpg.image_url;
        let actionAnimeImage2 = document.createElement("img");
        actionAnimeImage2.setAttribute("src", actionAnimeImageResults2);
        modalBox.append(actionAnimeImage2);
@@ -380,29 +414,36 @@ const actionGenre = async () => {
       })
       
     }
+    }
+
+    
   } catch (error) {
     console.error(error);
   }
 };
 
-actionGenre();
+actionGenre('1');
 
 const fantasyHeader = document.getElementById("fantasy-header");
 const fantasyImages = document.getElementById("fantasy-images");
 
-const fantasyGenre = async () => {
+const fantasyCache = {}
+
+const fantasyGenre = async (fantasy) => {
+
+  fantasyHeader.insertAdjacentHTML(
+    "afterbegin",
+    `<h2>Fantasy</h2>`
+  );
+  fantasyHeader.classList.add("anime-genres");
   try {
-    const fantasyGenreURL = `https://api.jikan.moe/v3/genre/anime/10`;
-    const fantasyGenre = await axios.get(fantasyGenreURL);
-    let fantasyGenreName = fantasyGenre.data.mal_url.name;
 
-    let results = fantasyGenre.data.anime;
+    if (!fantasyCache[fantasy]) {
+      const data = await axios.get(`https://api.jikan.moe/v4/anime?genres=${fantasy}`)
+      const fantasyGenre = data
+      fantasyCache[fantasy] = fantasyGenre
 
-    fantasyHeader.insertAdjacentHTML(
-      "afterbegin",
-      `<h2>${fantasyGenreName}</h2>`
-    );
-    fantasyHeader.classList.add("anime-genres");
+    let results = fantasyCache[fantasy].data.data;
 
     for (let i = 0; i < results.length; i++) {
 
@@ -418,7 +459,7 @@ const fantasyGenre = async () => {
       fantasyAnimeDiv.append(animeButton);
 
       // Display images
-      let fantasyAnimeImageResults = results[i].image_url;
+      let fantasyAnimeImageResults = results[i].images.jpg.image_url;
       let fantasyAnimeImage = document.createElement("img");
       fantasyAnimeImage.setAttribute("src", fantasyAnimeImageResults);
       fantasyAnimeImage.classList.add("anime-images");
@@ -451,7 +492,7 @@ const fantasyGenre = async () => {
       modalBox.append(synopsis)
 
       // Display images in modal
-      let fantasyAnimeImageResults2 = results[i].image_url;
+      let fantasyAnimeImageResults2 = results[i].images.jpg.image_url;
       let fantasyAnimeImage2 = document.createElement("img");
       fantasyAnimeImage2.setAttribute("src", fantasyAnimeImageResults2);
       modalBox.append(fantasyAnimeImage2);
@@ -467,29 +508,35 @@ const fantasyGenre = async () => {
      })
      
     }
+    }
+    
   } catch (error) {
     console.error(error);
   }
 };
 
-fantasyGenre();
+fantasyGenre('10');
 
 const romanceHeader = document.getElementById("romance-header");
 const romanceImages = document.getElementById("romance-images");
 
-const romanceGenre = async () => {
+const romanceCache = {}
+
+const romanceGenre = async (romance) => {
+  romanceHeader.insertAdjacentHTML(
+    "afterbegin",
+    `<h2>Romance</h2>`
+  );
+  romanceHeader.classList.add("anime-genres");
+
   try {
-    const romanceGenreURL = `https://api.jikan.moe/v3/genre/anime/22`;
-    const romanceGenre = await axios.get(romanceGenreURL);
-    let romanceGenreName = romanceGenre.data.mal_url.name;
 
-    let results = romanceGenre.data.anime;
+    if (!romanceCache[romance]) {
+      const data = await axios.get(`https://api.jikan.moe/v4/anime?genres=${romance}`);
+      const romanceGenre = data
+      romanceCache[romance] = romanceGenre
 
-    romanceHeader.insertAdjacentHTML(
-      "afterbegin",
-      `<h2>${romanceGenreName}</h2>`
-    );
-    romanceHeader.classList.add("anime-genres");
+      let results = romanceCache[romance].data.data
 
     for (let i = 0; i < results.length; i++) {
 
@@ -505,7 +552,7 @@ const romanceGenre = async () => {
       romanceAnimeDiv.append(animeButton);
 
       // Display images
-      let romanceAnimeImageResults = results[i].image_url;
+      let romanceAnimeImageResults = results[i].images.jpg.image_url;
       let romanceAnimeImage = document.createElement("img");
       romanceAnimeImage.setAttribute("src", romanceAnimeImageResults);
       romanceAnimeImage.classList.add("anime-images");
@@ -538,7 +585,7 @@ const romanceGenre = async () => {
       modalBox.append(synopsis)
 
       // Display images in modal
-      let romanceAnimeImageResults2 = results[i].image_url;
+      let romanceAnimeImageResults2 = results[i].images.jpg.image_url;
       let romanceAnimeImage2 = document.createElement("img");
       romanceAnimeImage2.setAttribute("src", romanceAnimeImageResults2);
       modalBox.append(romanceAnimeImage2);
@@ -554,51 +601,61 @@ const romanceGenre = async () => {
      })
       
     }
+    }
+    
   } catch (error) {
     console.error(error);
   }
 };
 
-romanceGenre();
+romanceGenre('22');
 
 const banner = document.getElementById("banner-container")
 const bannerText = document.getElementById("banner-text")
 const bannerImage = document.getElementById("banner-image")
 
-const middleBanner = async () => {
+const bannerCache = {}
+
+const middleBanner = async (anime) => {
   try {
-    const middleBannerURL = `https://api.jikan.moe/v3/top/anime/1/upcoming`;
-    const middleBannerDisplay = await axios.get(middleBannerURL);
+
+    if (!bannerCache[anime]) {
+      const data = axios.get(`https://api.jikan.moe/v4/recommendations/${anime}`);
+      const middleBannerDisplay = data
+      bannerCache[now] = middleBannerDisplay
     
-    let results = middleBannerDisplay.data.top
+    let results = bannerCache[anime].data.data[0]
+    console.log(results)
 
       // Display images
-      let bannerImgResults = results[0].image_url
+      let bannerImgResults = results.entry[0].images.jpg.image_url
       let bannerImg = document.createElement("img");
       bannerImg.setAttribute("src", bannerImgResults);
       bannerImg.classList.add("banner-image");
       bannerImage.append(bannerImg);
 
       // Display text
-      let bannerTitle = results[0].title
+      let bannerTitle = results.entry[0].title
       let bannerTitleDisplay = document.createElement("a");
       bannerTitleDisplay.classList.add("banner-text");
       bannerTitleDisplay.textContent = bannerTitle
-      bannerTitleDisplay.setAttribute("href", results[0].url)
+      bannerTitleDisplay.setAttribute("href", results.entry[0].url)
       bannerText.append(bannerTitleDisplay);
 
-      let bannerDate = results[0].start_date
+      // let bannerDate = results.start_date
       let dateDisplay = document.createElement("p");
       dateDisplay.classList.add("banner-description");
-      dateDisplay.textContent = `Coming: ${bannerDate}`;
+      dateDisplay.textContent = `Recommended Anime`;
       bannerText.append(dateDisplay);
 
+    }
+    
 
   } catch (error) {
     console.error(error);
   }
 };
-middleBanner();
+middleBanner('anime');
 
 
 // Event Listeners
@@ -607,7 +664,7 @@ form.addEventListener("submit", (e) => {
 
   removeSearchWord();
   removeSearchRImages();
-  animeSearch();
+  // animeSearch();
   setTimeout(scrollToSearch, 250);
 });
 
