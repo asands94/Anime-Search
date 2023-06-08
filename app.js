@@ -240,7 +240,7 @@ const currentAnime = async (now) => {
   }
 };
 
-currentAnime('now');
+// currentAnime('now');
 
 const upcomingHeader = document.getElementById("upcoming-header");
 const upcomingImages = document.getElementById("upcoming-images");
@@ -330,7 +330,7 @@ const upcomingAnime = async (upcoming) => {
   }
 };
 
-upcomingAnime('upcoming');
+// upcomingAnime('upcoming');
 
 const actionHeader = document.getElementById("action-header");
 const actionImages = document.getElementById("action-images");
@@ -422,7 +422,7 @@ const actionGenre = async (action) => {
   }
 };
 
-actionGenre('1');
+// actionGenre('1');
 
 const fantasyHeader = document.getElementById("fantasy-header");
 const fantasyImages = document.getElementById("fantasy-images");
@@ -515,7 +515,7 @@ const fantasyGenre = async (fantasy) => {
   }
 };
 
-fantasyGenre('10');
+// fantasyGenre('10');
 
 const romanceHeader = document.getElementById("romance-header");
 const romanceImages = document.getElementById("romance-images");
@@ -608,7 +608,7 @@ const romanceGenre = async (romance) => {
   }
 };
 
-romanceGenre('22');
+// romanceGenre('22');
 
 const banner = document.getElementById("banner-container")
 const bannerText = document.getElementById("banner-text")
@@ -620,7 +620,7 @@ const middleBanner = async (anime) => {
   try {
 
     if (!bannerCache[anime]) {
-      const data = axios.get(`https://api.jikan.moe/v4/recommendations/${anime}`);
+      const data = await axios.get(`https://api.jikan.moe/v4/recommendations/${anime}`);
       const middleBannerDisplay = data
       bannerCache[anime] = middleBannerDisplay
     
@@ -655,7 +655,39 @@ const middleBanner = async (anime) => {
     console.error(error);
   }
 };
-middleBanner('anime');
+
+
+setTimeout(() =>
+{
+  currentAnime('now');;
+}, 2000);
+
+setTimeout(() =>
+{
+  upcomingAnime('upcoming');
+}, 3000);
+
+setTimeout(() =>
+{
+  middleBanner('anime');
+}, 4000);
+
+setTimeout(() =>
+{
+  actionGenre('1');
+}, 5000);
+
+setTimeout(() =>
+{
+  fantasyGenre('10');
+}, 6000);
+
+setTimeout(() =>
+{
+  romanceGenre('22');
+}, 7000);
+
+
 
 
 // Event Listeners
