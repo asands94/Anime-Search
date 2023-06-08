@@ -8,25 +8,13 @@ const bgImage = document.getElementById("main-image");
 const bgImageTitle = document.getElementById("main-text");
 const mainBorder = document.getElementById("main-border");
 
-// const animeSearchCache = {}
-// let showQuery = document.getElementById("search-shows").value;
-
-// const animeSearch = async (animeShowName) => {
-//   if (!animeSearchCache[animeShowName]) {
-//     document.getElementById("search-shows").value = animeShowName;
-//     const { data } = await axios.get(`https://api.jikan.moe/v4/anime?q=${animeShowName}&limit=24`)
-//     animeSearchCache[animeShowName] = data.data
-//   }
-//     console.log(animeSearchCache[animeShowName])
-// }
-
 const animeSearch = async () => {
 
   try {
     
     let animeShowName = document.getElementById("search-shows").value;
     document.getElementById("search-shows").value = "";
-    const animeSearch = axios.get(`https://api.jikan.moe/v4/anime?q=${animeShowName}&limit=24`)
+    const animeSearch = await axios.get(`https://api.jikan.moe/v4/anime?q=${animeShowName}&limit=24`)
 
     const results = animeSearch.data.data;
 
@@ -696,7 +684,7 @@ form.addEventListener("submit", (e) => {
 
   removeSearchWord();
   removeSearchRImages();
-  // animeSearch();
+  animeSearch();
   setTimeout(scrollToSearch, 250);
 });
 
