@@ -112,4 +112,6 @@ animeButton.addEventListener('click', (e) => {
 ```
 
 ## Change Log
- Did not add a watch later list because of time restraints and focusing on other aspects of the project.  
+ Did not add a watch later list because of time restraints and focusing on other aspects of the project.
+ June 7, 2023
+ - Upgraded to new version of the API as old version no longer displayed results
