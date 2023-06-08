@@ -622,7 +622,7 @@ const middleBanner = async (anime) => {
     if (!bannerCache[anime]) {
       const data = axios.get(`https://api.jikan.moe/v4/recommendations/${anime}`);
       const middleBannerDisplay = data
-      bannerCache[now] = middleBannerDisplay
+      bannerCache[anime] = middleBannerDisplay
     
     let results = bannerCache[anime].data.data[0]
     console.log(results)
